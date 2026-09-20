@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>گزارش جامع و تفصیلی راهنمای تأسیس و تبدیل به شرکت مادر (هلدینگ)</title>
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --primary-light: #eff6ff;
+            --secondary-color: #0f766e;
+            --secondary-light: #f0fdfa;
+            --accent-color: #b45309;
+            --accent-light: #fffbeb;
+            --danger-color: #b91c1c;
+            --danger-light: #fef2f2;
+            --success-color: #15803d;
+            --success-light: #f0fdf4;
+            --bg-color: #f1f5f9;
+            --card-bg: #ffffff;
+            --text-color: #0f172a;
+            --text-muted: #475569;
+            --border-color: #cbd5e1;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Vazirmatn', 'IRANSans', 'B Yekan', 'Tahoma', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 2;
+            padding: 20px;
+            font-size: 15px;
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 45px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--border-color);
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            border-bottom: 4px double var(--primary-color);
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+        }
+
+        header .badge {
+            background-color: var(--primary-light);
+            color: var(--primary-color);
+            font-size: 0.85rem;
+            font-weight: bold;
+            padding: 6px 18px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 15px;
+            border: 1px solid #bfdbfe;
+        }
+
+        header h1 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        header .subtitle {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        header .meta-info {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        header .meta-info span {
+            background: #f8fafc;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Table of Contents */
+        .toc {
+            background: var(--primary-light);
+            border: 1px solid #bfdbfe;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 40px;
+        }
+        .toc h2 {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            border: none;
+            padding: 0;
+        }
+        .toc ol { margin-right: 20px; }
+        .toc a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .toc a:hover { text-decoration: underline; }
+
+        /* Sections */
+        section {
+            margin-bottom: 45px;
+            padding-top: 15px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.55rem;
+            border-right: 6px solid var(--secondary-color);
+            padding-right: 15px;
+            margin-bottom: 25px;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        h3 {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            margin: 25px 0 12px 0;
+            padding-right: 10px;
+            border-right: 4px solid var(--secondary-color);
+        }
+
+        h4 {
+            color: var(--accent-color);
+            font-size: 1.05rem;
+            margin: 20px 0 10px 0;
+        }
+
+        p { margin-bottom: 15px; text-align: justify; }
+
+        strong { color: var(--primary-color); }
+
+        /* Callouts */
+        .callout {
+            padding: 18px 22px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-right: 5px solid;
+        }
+        .callout.info { background-color: var(--primary-light); border-color: var(--primary-color); }
+        .callout.success { background-color: var(--success-light); border-color: var(--success-color); }
+        .callout.warning { background-color: var(--accent-light); border-color: var(--accent-color); }
+        .callout.danger { background-color: var(--danger-light); border-color: var(--danger-color); }
+        .callout.law { 
+            background-color: #f8fafc; 
+            border-color: var(--primary-color); 
+            border: 1px solid var(--border-color); 
+            border-right-width: 5px;
+        }
+
+        .callout-title {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.05rem;
+        }
+
+        /* Lists */
+        ul, ol { margin-right: 28px; margin-bottom: 20px; }
+        li { margin-bottom: 10px; text-align: justify; }
+
+        /* Document Grid */
+        .doc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+        }
+        .doc-card {
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 16px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            transition: all 0.2s;
+        }
+        .doc-card:hover {
+            background: var(--primary-light);
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+        .doc-card .icon {
+            background: var(--primary-color);
+            color: white;
+            width: 32px;
+            height: 32px;
+            min-width: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+        .doc-card .content {
+            flex: 1;
+            line-height: 1.7;
+        }
+        .doc-card .content strong {
+            display: block;
+            margin-bottom: 4px;
+            color: var(--text-color);
+        }
+        .doc-card .content small {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        thead { background: var(--primary-color); color: white; }
+        th, td { padding: 12px 15px; text-align: right; border-bottom: 1px solid var(--border-color); }
+        tbody tr:nth-child(even) { background: #f8fafc; }
+        tbody tr:hover { background: var(--primary-light); }
+
+        /* Flowchart */
+        .flowchart-container {
+            background: linear-gradient(to bottom, #fafafa, #f1f5f9);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px 20px;
+            margin: 25px 0;
+        }
+        .flowchart-title {
+            text-align: center;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+        .flow-step {
+            background: white;
+            border: 2px solid var(--primary-color);
+            border-radius: 8px;
+            padding: 12px 20px;
+            text-align: center;
+            max-width: 480px;
+            margin: 0 auto;
+            font-weight: 600;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+        }
+        .flow-step small {
+            display: block;
+            font-weight: normal;
+            color: var(--text-muted);
+            margin-top: 4px;
+            font-size: 0.85rem;
+        }
+        .flow-step.start-end {
+            background: var(--success-color);
+            color: white;
+            border-color: var(--success-color);
+            border-radius: 50px;
+            max-width: 200px;
+        }
+        .flow-step.decision {
+            background: var(--accent-light);
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+            transform: rotate(0deg);
+            border-radius: 15px;
+        }
+        .flow-step.action {
+            background: #e0f2fe;
+            border-color: #0284c7;
+        }
+        .flow-step.warning-step {
+            background: var(--danger-light);
+            border-color: var(--danger-color);
+            color: var(--danger-color);
+        }
+        .flow-arrow {
+            text-align: center;
+            font-size: 1.8rem;
+            color: var(--text-muted);
+            margin: 6px 0;
+            line-height: 1;
+        }
+        .flow-branch {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 700px;
+            margin: 10px auto;
+        }
+        .branch-label {
+            text-align: center;
+            font-size: 0.85rem;
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+        .branch-yes { color: var(--success-color); }
+        .branch-no { color: var(--danger-color); }
+
+        /* Highlight Number */
+        .highlight-num {
+            background: var(--accent-color);
+            color: white;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.95em;
+            display: inline-block;
+        }
+
+        /* Circular / Official Doc */
+        .official-doc {
+            border: 2px solid var(--secondary-color);
+            padding: 25px;
+            border-radius: 10px;
+            background-color: var(--secondary-light);
+            margin: 25px 0;
+            position: relative;
+        }
+        .official-doc::before {
+            content: "ابلاغیه رسمی";
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: var(--secondary-color);
+            color: white;
+            padding: 3px 15px;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+        .doc-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            border-bottom: 2px solid #99f6e4;
+            padding-bottom: 12px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        .doc-header div { padding: 3px 0; }
+        .doc-header strong { color: var(--secondary-color); }
+        .doc-signature {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px dashed #99f6e4;
+            text-align: left;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        .doc-signature .signer-name {
+            font-weight: bold;
+            color: var(--text-color);
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            border-top: 2px solid var(--border-color);
+            padding-top: 25px;
+            margin-top: 50px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        footer .credit {
+            margin-top: 10px;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 20px; }
+            header h1 { font-size: 1.5rem; }
+            .flow-branch { grid-template-columns: 1fr; }
+            .doc-header { grid-template-columns: 1fr; }
+            table { font-size: 0.9rem; }
+        }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .container { box-shadow: none; border: none; padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Header -->
+    <header>
+        <span class="badge">سازمان بورس و اوراق بهادار ایران (SEO)</span>
+        <h1>گزارش جامع و تفصیلی راهنمای اعطای مجوز نهاد مالی<br>«شرکت مادر (هلدینگ)»</h1>
+        <p class="subtitle">مراحل قانونی، مدارک الزامی، ضوابط سرمایه، و فرآیند اجرایی صدور مجوز تأسیس و تبدیل</p>
+        <div class="meta-info">
+            <span>📚 مرجع: www.seo.ir</span>
+            <span>🏛 مرجع صدور: هیئت‌مدیره سازمان بورس</span>
+            <span>📄 دستورالعمل شناسایی و ثبت نهادهای مالی</span>
+        </div>
+    </header>
+
+    <!-- Table of Contents -->
+    <nav class="toc">
+        <h2>📑 فهرست مطالب</h2>
+        <ol>
+            <li><a href="#s1">مقدمه و مبانی قانونی</a></li>
+            <li><a href="#s2">تعریف شرکت مادر (هلدینگ) و جایگاه آن</a></li>
+            <li><a href="#s3">ضوابط حداقل سرمایه و شرایط معافیت از ثبت (ابلاغیه رسمی)</a></li>
+            <li><a href="#s4">مدارک الزامی برای ارسال درخواست تأسیس یا تبدیل</a></li>
+            <li><a href="#s5">مرحله بررسی درخواست توسط کارشناس</a></li>
+            <li><a href="#s6">مرحله اول: صدور موافقت اصولی (تفصیلی)</a></li>
+            <li><a href="#s7">مرحله دوم: صدور اجازه فعالیت (تفصیلی)</a></li>
+            <li><a href="#s8">فلوچارت اجرایی مرحله اول (بررسی و موافقت اصولی)</a></li>
+            <li><a href="#s9">فلوچارت اجرایی مرحله دوم (صدور مجوز فعالیت)</a></li>
+            <li><a href="#s10">سامانه تبادل اطلاعات نهادهای مالی (سِتان)</a></li>
+            <li><a href="#s11">جمع‌بندی و توصیه‌های عملیاتی</a></li>
+        </ol>
+    </nav>
+
+    <!-- Section 1: Introduction -->
+    <section id="s1">
+        <h2>۱. مقدمه و مبانی قانونی</h2>
+        <p>
+            فرآیند تأسیس یا تبدیل یک شرکت به «شرکت مادر (هلدینگ)» و ثبت آن به‌عنوان یک «نهاد مالی» نزد سازمان بورس و اوراق بهادار، یک فرآیند کاملاً قانونی و مبتنی بر مستندات صریح در قوانین بالادستی کشور است. سازمان بورس و اوراق بهادار (SEO) به موجب تکالیف قانونی زیر، متولی صدور مجوز تأسیس و اجازه فعالیت نهادهای مالی است.
+        </p>
+
+        <h3>۱.۱. بند «ث» ماده ۳۶ قانون احکام دائمی برنامه‌های توسعه کشور</h3>
+        <div class="callout law">
+            <span class="callout-title">📜 متن قانون:</span>
+            «اعضای هیئت‌مدیره و مدیرعامل تمامی اشخاص حقوقی که تحت یکی از عناوین نهادهای مالی موضوع قانون بازار اوراق بهادار جمهوری اسلامی ایران و یا قانون توسعه ابزارها و نهادهای مالی جدید به‌منظور تسهیل اجرای سیاست‌های کلی اصل چهل و چهارم (۴۴) قانون اساسی تاکنون تشکیل شده‌اند و نزد مرجع ثبت شرکت‌ها در سراسر کشور به ثبت رسیده‌اند و نیز آن دسته از اشخاص حقوقی که موضوع فعالیت اصلی آن‌ها نهاد مالی است، موظف‌اند نهاد مالی تحت مدیریت خود را نزد سازمان بورس و اوراق بهادار به ثبت برسانند.»
+            <br><br>
+            <strong>ضمانت اجرا:</strong> خودداری از ثبت نهاد مالی <strong>تخلف محسوب می‌شود</strong> و فعالیت مدیران آن‌ها مشمول <strong>بند ۱ ماده ۴۹ قانون بازار اوراق بهادار</strong> جمهوری اسلامی ایران است.
+            <br><br>
+            <strong>وظیفه سازمان ثبت اسناد و املاک:</strong> سازمان ثبت اسناد و املاک کشور مکلف است نهادهای مالی را <strong>فقط با مجوز سازمان بورس و اوراق بهادار</strong> ثبت کند و از ثبت نهادهای مالی بدون مجوز خودداری کند.
+            <br><br>
+            <strong>تغییرات بعدی:</strong> هرگونه تغییرات در اساسنامه و سرمایه نهادهای مالی نیز <strong>منوط به تأیید سازمان بورس و اوراق بهادار</strong> طبق ضوابط مربوط است. تأیید صلاحیت حرفه‌ای مدیران نهادهای مالی نیز بر اساس دستورالعملی است که به تصویب <strong>شورای عالی بورس و اوراق بهادار</strong> می‌رسد.
+        </div>
+
+        <h3>۱.۲. بند ۶ ماده ۷ قانون بازار اوراق بهادار جمهوری اسلامی ایران</h3>
+        <div class="callout law">
+            <span class="callout-title">📜 متن قانون:</span>
+            «صدور، تعلیق و لغو مجوز تأسیس کانون‌ها و نهادهای مالی که در حوزه عمل مستقیم شورا نیست»، ذیل <strong>وظایف و اختیارات هیئت‌مدیره سازمان بورس و اوراق بهادار</strong> تعریف شده است.
+        </div>
+
+        <div class="callout info">
+            <span class="callout-title">🎯 نتیجه‌گیری قانونی:</span>
+            با توجه به تکالیف قانونی مشخص‌شده، سازمان بورس و اوراق بهادار مرجع منحصر به فرد اعطای مجوز تأسیس و اجازه فعالیت نهادهای مالی است و راهنمای حاضر به تشریح مراحل و شرایط اعطای مجوز شرکت مادر (هلدینگ) که از مصادیق نهادهای مالی مذکور هستند، می‌پردازد.
+        </div>
+    </section>
+
+    <!-- Section 2: Definition -->
+    <section id="s2">
+        <h2>۲. تعریف شرکت مادر (هلدینگ) و جایگاه آن به‌عنوان نهاد مالی</h2>
+
+        <h3>۲.۱. مبنای قانونی نهاد مالی بودن هلدینگ</h3>
+        <p>
+            شرکت‌های مادر (هلدینگ) بر اساس <strong>ماده ۴ آیین‌نامه اجرایی قانون بازار اوراق بهادار</strong>، از مصادیق نهادهای مالی محسوب می‌شوند و لذا مشمول تمامی الزامات ثبت نزد سازمان بورس هستند.
+        </p>
+
+        <h3>۲.۲. تعریف رسمی هلدینگ طبق بند ۲۲ ماده ۱ قانون بازار اوراق بهادار</h3>
+        <div class="callout info">
+            <span class="callout-title">📖 تعریف قانونی:</span>
+            «شرکت‌های مادر (هلدینگ) شرکت‌هایی هستند که با سرمایه‌گذاری در شرکت سرمایه‌پذیر جهت کسب انتفاع، آن‌قدر حق رأی کسب می‌کنند که برای کنترل عملیات شرکت، هیئت‌مدیره را انتخاب کنند و یا در انتخاب اعضای هیئت‌مدیره مؤثر باشند.»
+        </div>
+
+        <h3>۲.۳. کارکرد اقتصادی هلدینگ</h3>
+        <p>
+            این‌گونه شرکت‌ها با شرکت‌های زیرمجموعه‌ی خود یک «گروه» را تشکیل می‌دهند و برای افزایش حجم فعالیت‌های تولیدی، بازرگانی و خدماتی خود می‌توانند از طریق <strong>تملک تمام یا قسمت عمده‌ای از سهام بنگاه‌ها یا شرکت‌های دیگر</strong>، فعالیت اقتصادی آن‌ها را کنترل کنند.
+        </p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ویژگی</th>
+                    <th>شرح تفصیلی</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>ماهیت حقوقی</strong></td>
+                    <td>نهاد مالی موضوع قانون بازار اوراق بهادار</td>
+                </tr>
+                <tr>
+                    <td><strong>هدف اصلی</strong></td>
+                    <td>سرمایه‌گذاری در شرکت‌های سرمایه‌پذیر جهت کسب انتفاع</td>
+                </tr>
+                <tr>
+                    <td><strong>معیار کنترل</strong></td>
+                    <td>کسب حق رأی کافی برای انتخاب هیئت‌مدیره یا تأثیرگذاری در انتخاب</td>
+                </tr>
+                <tr>
+                    <td><strong>ساختار گروه</strong></td>
+                    <td>تشکیل «گروه شرکت‌ها» متشکل از هلدینگ و شرکت‌های زیرمجموعه</td>
+                </tr>
+                <tr>
+                    <td><strong>روش تملک</strong></td>
+                    <td>خرید تمام یا بخش عمده‌ای از سهام بنگاه‌های اقتصادی</td>
+                </tr>
+                <tr>
+                    <td><strong>حوزه فعالیت زیرمجموعه‌ها</strong></td>
+                    <td>تولیدی، بازرگانی، خدماتی</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Section 3: Capital & Exemption -->
+    <section id="s3">
+        <h2>۳. ضوابط حداقل سرمایه و شرایط معافیت از ثبت</h2>
+        <p>
+            یکی از مهم‌ترین شرایط کلیدی برای ثبت شرکت هلدینگ به‌عنوان نهاد مالی، رعایت «حداقل سرمایه» تعیین‌شده توسط هیئت‌مدیره سازمان بورس و اوراق بهادار است. جزئیات این ضوابط طی ابلاغیه رسمی زیر اعلام شده است:
+        </p>
+
+        <div class="official-doc">
+            <div class="doc-header">
+                <div><strong>شماره ابلاغیه:</strong> ۱۲۰۲۰۰۱۶</div>
+                <div><strong>صادرکننده:</strong> مدیریت نظارت بر نهادهای مالی</div>
+                <div><strong>موضوع:</strong> شرایط معافیت شرکت سرمایه‌گذاری و مادر (هلدینگ) از ثبت نزد سازمان و حداقل سرمایه این نوع از نهادهای مالی</div>
+                <div><strong>مخاطبین:</strong> کلیه فعالان در بازار اوراق بهادار</div>
+            </div>
+
+            <h4>الف) مصوبه شرایط معافیت از ثبت (مورخ ۱۳۹۱/۰۴/۱۵)</h4>
+            <p>
+                هیئت‌مدیره سازمان بورس و اوراق بهادار در جلسه مورخ <strong>۱۵/۰۴/۱۳۹۱</strong>، شرایط معافیت از ثبت شرکت‌های سرمایه‌گذاری و مادر (هلدینگ) را به شرح زیر تصویب نمود:
+            </p>
+            <div class="callout warning">
+                «آن دسته از اشخاص حقوقی که نسبت به انجام فعالیت‌های سرمایه‌گذاری یا مادر (هلدینگ) اقدام می‌نمایند، لکن سرمایه آن‌ها حسب مورد از حداقل تعیین‌شده برای شرکت‌های مذکور کمتر است، از ثبت نزد سازمان به‌عنوان نهاد مالی <strong>معاف</strong> هستند، مشروط به اینکه طبق سایر مقررات ملزم به ثبت نزد سازمان به‌عنوان شرکت سهامی عام نباشند. اشخاص حقوقی که بر اساس این مصوبه از ثبت نزد سازمان معاف می‌شوند، در صورت ضرورت ملزم‌اند متعاقباً نام خود را اصلاح نمایند.»
+            </div>
+
+            <h4>ب) مصوبه اصلاح حداقل سرمایه (مورخ ۱۳۹۱/۰۶/۲۵)</h4>
+            <p>
+                همچنین هیئت‌مدیره سازمان بورس و اوراق بهادار در جلسه مورخ <strong>۲۵/۰۶/۱۳۹۱</strong>، حداقل سرمایه شرکت‌های سرمایه‌گذاری و مادر (هلدینگ) را به شرح زیر اصلاح نمود:
+            </p>
+            <div class="callout danger">
+                «در اجرای <strong>ماده ۲۹ قانون بازار اوراق بهادار</strong>، حداقل سرمایه شرکت‌های سرمایه‌گذاری و مادر (هلدینگ) مبلغ <span class="highlight-num">۱۰۰ میلیارد ریال (یکصد میلیارد ریال)</span> تعیین می‌گردد. در ضمن بند ۲ مصوبه مورخ ۱۵/۰۲/۱۳۸۶ هیئت‌مدیره سازمان بورس و اوراق بهادار در خصوص حداقل سرمایه شرکت‌های سرمایه‌گذاری و مادر (هلدینگ) ملغی می‌گردد.»
+            </div>
+
+            <div class="doc-signature">
+                <div class="signer-name">ایوب باقرتبار</div>
+                <div>مدیر نظارت بر نهادهای مالی</div>
+                <br>
+                <strong>رونوشت:</strong> اعضای محترم هیئت‌مدیره سازمان جهت استحضار
+            </div>
+        </div>
+
+        <h3>۳.۱. جمع‌بندی ضوابط سرمایه</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>ردیف</th>
+                    <th>وضعیت سرمایه شرکت</th>
+                    <th>وضعیت ثبت نزد سازمان</th>
+                    <th>الزامات جانبی</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>۱</td>
+                    <td>مساوی یا بیشتر از ۱۰۰ میلیارد ریال</td>
+                    <td>الزام به ثبت به‌عنوان نهاد مالی</td>
+                    <td>طی کلیه مراحل مندرج در راهنما</td>
+                </tr>
+                <tr>
+                    <td>۲</td>
+                    <td>کمتر از ۱۰۰ میلیارد ریال</td>
+                    <td>معاف از ثبت (مشروط)</td>
+                    <td>عدم الزام به ثبت سهامی عام + احتمال الزام به اصلاح نام</td>
+                </tr>
+                <tr>
+                    <td>۳</td>
+                    <td>کمتر از حداقل، ولی سهامی عام</td>
+                    <td>الزام به ثبت</td>
+                    <td>مشمول ضوابط سهامی عام</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Section 4: Documents -->
+    <section id="s4">
+        <h2>۴. مدارک الزامی برای ارسال درخواست تأسیس یا تبدیل</h2>
+        <p>
+            متقاضیان تأسیس یا تبدیل به شرکت سرمایه‌گذاری / مادر (هلدینگ) موظف‌اند مدارک زیر را در مرحله ارسال درخواست به سازمان بورس ارائه نمایند:
+        </p>
+
+        <h3>۴.۱. مدارک عمومی مرحله ارسال درخواست</h3>
+        <div class="doc-grid">
+            <div class="doc-card">
+                <div class="icon">۱</div>
+                <div class="content">
+                    <strong>صورت‌های مالی حسابرسی‌شده</strong>
+                    <small>مربوط به دو سال اخیر، به همراه گزارش حسابرس و بازرس قانونی شرکت</small>
+                </div>
+            </div>
+            <div class="doc-card">
+                <div class="icon">۲</div>
+                <div class="content">
+                    <strong>آخرین اساسنامه نهاد مالی</strong>
+                    <small>نسخه معتبر و کامل اساسنامه ثبت‌شده</small>
+                </div>
+            </div>
+            <div class="doc-card">
+                <div class="icon">۳</div>
+                <div class="content">
+                    <strong>آخرین روزنامه رسمی صاحبان امضای مجاز</strong>
+                    <small>جهت تطبیق و احراز هویت صاحبان امضا</small>
+                </div>
+            </div>
+            <div class="doc-card">
+                <div class="icon">۴</div>
+                <div class="content">
+                    <strong>آگهی تأسیس و تغییرات بعدی آن</strong>
+                    <small>شامل کلیه تغییرات ثبتی که پس از تأسیس رخ داده است</small>
+                </div>
+            </div>
+            <div class="doc-card">
+                <div class="icon">۵</div>
+                <div class="content">
+                    <strong>تصویر روزنامه رسمی آخرین تغییرات نهاد مالی</strong>
+                    <small>نمایانگر آخرین وضعیت رسمی شرکت</small>
+                </div>
+            </div>
+            <div class="doc-card">
+                <div class="icon">۶</div>
+                <div class="content">
+                    <strong>تصویر اظهارنامه ثبت شرکت</strong>
+                    <small>سند تأسیس اولیه شرکت نزد اداره ثبت شرکت‌ها</small>
+                </div>
+            </div>
+            <div class="doc-card">
+                <div class="icon">۷</div>
+                <div class="content">
+                    <strong>برنامه کسب و کار (Business Plan)</strong>
+                    <small>ویژه درخواست‌های مربوط به شرکت‌های مادر (هلدینگ)</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="callout warning">
+            <span class="callout-title">⚠️ نکته مهم:</span>
+            «برنامه کسب و کار» صرفاً برای شرکت‌های مادر (هلدینگ) در فهرست مدارک الزامی درج شده و یکی از مهم‌ترین مدارکی است که راهبرد سرمایه‌گذاری، ساختار گروه و افق مالی شرکت را به سازمان اثبات می‌کند.
+        </div>
+    </section>
+
+    <!-- Section 5: Expert Review -->
+    <section id="s5">
+        <h2>۵. مرحله بررسی درخواست توسط کارشناس</h2>
+        <p>
+            پس از ارسال مدارک، درخواست متقاضی توسط کارشناسان اداره امور نهادهای مالی مورد بررسی قرار می‌گیرد. شرایط لازم برای این بررسی به‌شرح زیر است:
+        </p>
+
+        <div class="callout info">
+            <span class="callout-title">🔍 شرایط لازم برای بررسی درخواست:</span>
+            <ul>
+                <li><strong>الف) بررسی درخواست</strong> با توجه به «دستورالعمل شناسایی و ثبت نهادهای مالی فعال در بازار اوراق بهادار نزد سازمان»</li>
+                <li><strong>ب) بررسی شرط حداقل سرمایه</strong> برای شرکت‌های سرمایه‌گذاری / مادر (هلدینگ) (حداقل ۱۰۰ میلیارد ریال)</li>
+            </ul>
+        </div>
+
+        <p>
+            نتیجه بررسی کارشناسی به یکی از سه حالت زیر منتهی خواهد شد:
+        </p>
+        <ol>
+            <li><strong>عدم نقص مدارک و احراز شرایط:</strong> ادامه فرآیند و تهیه گزارش برای معاونت و ریاست سازمان.</li>
+            <li><strong>وجود نقص در مدارک:</strong> اعلام نواقص به متقاضی و درخواست تکمیل مدارک.</li>
+            <li><strong>عدم احراز شرایط (مانند سرمایه کمتر از حد نصاب):</strong> بررسی مشمول بودن یا نبودن شرط معافیت.</li>
+        </ol>
+    </section>
+
+    <!-- Section 6: Stage 1 -->
+    <section id="s6">
+        <h2>۶. مرحله اول: صدور موافقت اصولی با تبدیل به شرکت مادر (هلدینگ)</h2>
+        <p>
+            متقاضیان تبدیل به شرکت مادر (هلدینگ) باید در راستای بررسی احراز شرایط ثبت به‌عنوان نهاد مالی و اخذ موافقت اصولی، <strong>یک نسخه</strong> از مدارک زیر را به‌صورت <strong>حضوری</strong> به دبیرخانه این سازمان ارسال نمایند:
+        </p>
+
+        <div class="doc-grid">
+            <div class="doc-card">
+                <div class="icon">۱</div>
+                <div class="content">
+                    <strong>فرم تقاضای صدور موافقت اصولی</strong>
+                    <small>با تبدیل به شرکت مادر (هلدینگ)، که تمامی صفحات آن به امضاء صاحبان امضای مجاز شرکت رسیده و ممهور به مهر شرکت باشد</small>
+                </div>
+            </div>
+            <div class="doc-card">
+                <div class="icon">۲</div>
+                <div class="content">
+                    <strong>پیش‌نویس تکمیل‌شده اساسنامه نمونه</strong>
+                    <small>اساسنامه نمونه مصوب سازمان برای شرکت مادر (هلدینگ) که تمام صفحات آن به امضای صاحبان امضای مجاز رسیده و ممهور به مهر شرکت باشد</small>
+                </div>
+            </div>
+            <div class="doc-card">
+                <div class="icon">۳</div>
+                <div class="content">
+                    <strong>صورت‌های مالی حسابرسی‌شده دو سال مالی اخیر شرکت</strong>
+                    <small>گزارش حسابرس و بازرس قانونی الزامی است</small>
+                </div>
+            </div>
+            <div class="doc-card">
+                <div class="icon">۴</div>
+                <div class="content">
+                    <strong>صورت‌های مالی حسابرسی‌شده دو سال اخیر سهامداران عمده و ذی‌نفعان نهایی</strong>
+                    <small>افشای وضعیت مالی ذی‌نفعان کلیدی</small>
+                </div>
+            </div>
+            <div class="doc-card">
+                <div class="icon">۵</div>
+                <div class="content">
+                    <strong>تصویر اظهارنامه ثبتی و آگهی تأسیس شرکت</strong>
+                    <small>سند رسمی تأسیس شرکت</small>
+                </div>
+            </div>
+            <div class="doc-card">
+                <div class="icon">۶</div>
+                <div class="content">
+                    <strong>تصویر آخرین اساسنامه ثبت‌شده شرکت</strong>
+                    <small>وضعیت جاری اساسنامه شرکت</small>
+                </div>
+            </div>
+            <div class="doc-card">
+                <div class="icon">۷</div>
+                <div class="content">
+                    <strong>تصویر روزنامه رسمی آخرین تغییرات شرکت</strong>
+                    <small>آخرین تغییرات ثبتی شرکت</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="callout success">
+            <span class="callout-title">✅ نتیجه مرحله اول:</span>
+            سازمان پس از بررسی مدارک، در صورت <strong>تکمیل بودن مدارک</strong> و <strong>احراز شرایط لازم طبق دستورالعمل مربوطه</strong>، موافقت اصولی خود را با تبدیل شرکت به نهاد مالی – شرکت مادر (هلدینگ) – اعلام می‌نماید.
+        </div>
+    </section>
+
+    <!-- Section 7: Stage 2 -->
+    <section id="s7">
+        <h2>۷. مرحله دوم: صدور اجازه فعالیت به‌عنوان شرکت مادر (هلدینگ)</h2>
+        <p>
+            پس از اتمام مرحله اول و صدور موافقت اصولی تبدیل به شرکت مادر (هلدینگ)، متقاضی باید <strong>طی مهلتی که سازمان تعیین می‌کند</strong>، مراحل زیر را طی نموده و مدارک مربوطه را جهت ثبت نزد سازمان و اخذ اجازه فعالیت به‌عنوان نهاد مالی – شرکت مادر (هلدینگ) – ارائه نماید:
+        </p>
+
+        <h3>۷.۱. اقدامات و مدارک الزامی مرحله دوم</h3>
+        <div class="doc-grid">
+            <div class="doc-card">
+                <div class="icon">۱</div>
+                <div class="content">
+                    <strong>ارسال تعهدنامه رعایت الزامات موافقت اصولی</strong>
+                    <small>تعهدنامه در خصوص رعایت الزامات مندرج در موافقت اصولی صادره در مرحله اول، به‌نحوی‌که به امضای صاحبان امضای مجاز مطابق آخرین روزنامه رسمی شرکت رسیده باشد</small>
+                </div>
+            </div>
+            <div class="doc-card">
+                <div class="icon">۲</div>
+                <div class="content">
+                    <strong>اخذ تأیید صلاحیت حرفه‌ای مدیران پیشنهادی</strong>
+                    <small>با مراجعه به سامانه تبادل اطلاعات نهادهای مالی (سِتان) به آدرس www.setan.seo.ir و ارسال به سازمان بورس مطابق مراحل مندرج در راهنمای سامانه</small>
+                </div>
+            </div>
+            <div class="doc-card">
+                <div class="icon">۳</div>
+                <div class="content">
+                    <strong>برگزاری مجمع عمومی فوق‌العاده</strong>
+                    <small>در خصوص تغییر موضوع فعالیت شرکت و تصویب اساسنامه نمونه سازمان برای نهاد مالی – شرکت مادر (هلدینگ) – و ارائه صورتجلسه مربوطه به سازمان</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="callout success">
+            <span class="callout-title">🎉 نتیجه مرحله دوم:</span>
+            سازمان پس از بررسی مدارک، <strong>اجازه فعالیت شرکت به‌عنوان نهاد مالی – شرکت مادر (هلدینگ)</strong> – را ابلاغ می‌نماید و <strong>نام شرکت در فهرست شرکت‌های ثبت شده نزد سازمان بورس و اوراق بهادار درج می‌گردد.</strong>
+        </div>
+    </section>
+
+    <!-- Section 8: Flowchart Stage 1 -->
+    <section id="s8">
+        <h2>۸. فلوچارت اجرایی مرحله اول (بررسی درخواست و صدور موافقت اصولی)</h2>
+        <p>
+            نمودار زیر نمایانگر گردش کار (Workflow) بین متقاضی، اداره امور نهادهای مالی، معاونت نهادها و ریاست سازمان در مرحله اول است:
+        </p>
+
+        <div class="flowchart-container">
+            <div class="flowchart-title">🔄 فلوچارت مرحله اول: از ارسال درخواست تا صدور موافقت اصولی</div>
+
+            <div class="flow-step start-end">شروع</div>
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step action">
+                متقاضی به اداره امور نهادها
+                <small>ارسال درخواست تأسیس / تبدیل به شرکت سرمایه‌گذاری / مادر (هلدینگ) + مدارک لازم</small>
+            </div>
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step action">
+                اداره امور نهادهای مالی
+                <small>بررسی درخواست توسط کارشناس (شرایط لازم)</small>
+            </div>
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step decision">❓ آیا مدارک نقص دارد؟</div>
+
+            <div class="flow-branch">
+                <div>
+                    <div class="branch-label branch-no">🔴 بله (دارای نقص)</div>
+                    <div class="flow-step warning-step">
+                        اعلام نواقص به متقاضی
+                        <small>بازگشت به ابتدای فرآیند برای رفع نقص</small>
+                    </div>
+                </div>
+                <div>
+                    <div class="branch-label branch-yes">🟢 خیر (کامل)</div>
+                    <div class="flow-step action">
+                        اداره امور نهادهای مالی
+                        <small>تهیه گزارش و ارسال به همراه ضمائم به معاونت مربوطه و ریاست سازمان</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flow-arrow">↓ (مسیر تأیید)</div>
+
+            <div class="flow-step decision">
+                معاونت نهادها
+                <small>بررسی گزارش</small>
+            </div>
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-branch">
+                <div>
+                    <div class="branch-label branch-no">🔴 نیاز به اصلاح دارد</div>
+                    <div class="flow-step warning-step">
+                        بازگشت به اداره نهادهای مالی برای اصلاح گزارش
+                    </div>
+                </div>
+                <div>
+                    <div class="branch-label branch-yes">🟢 نیاز به اصلاح ندارد</div>
+                    <div class="flow-step action">
+                        ارسال به ریاست سازمان
+                    </div>
+                </div>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step decision">
+                ریاست سازمان
+                <small>مطالعه گزارش</small>
+            </div>
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-branch">
+                <div>
+                    <div class="branch-label branch-no">🔴 نیاز به اصلاح دارد</div>
+                    <div class="flow-step warning-step">بازگشت جهت اصلاح</div>
+                </div>
+                <div>
+                    <div class="branch-label branch-yes">🟢 نیاز به اصلاح ندارد</div>
+                    <div class="flow-step action">
+                        اداره نهادهای مالی
+                        <small>اعلام صدور / عدم صدور موافقت اصولی به متقاضی</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step start-end">پایان</div>
+        </div>
+
+        <div class="callout info">
+            <span class="callout-title">📌 نکات کلیدی فلوچارت مرحله اول:</span>
+            <ul>
+                <li>گزارش کارشناسی باید توسط <strong>سه لایه بررسی</strong> (کارشناس، معاونت، ریاست سازمان) تأیید شود.</li>
+                <li>در هر یک از مراحل، امکان بازگشت گزارش برای اصلاح وجود دارد.</li>
+                <li>پاسخ نهایی می‌تواند «صدور موافقت اصولی» یا «عدم موافقت اصولی» باشد.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Section 9: Flowchart Stage 2 -->
+    <section id="s9">
+        <h2>۹. فلوچارت اجرایی مرحله دوم (صدور مجوز فعالیت)</h2>
+        <p>
+            پس از دریافت موافقت اصولی، شرکت متقاضی وارد مرحله دوم شده و باید طبق فرآیند زیر اقدام کند:
+        </p>
+
+        <div class="flowchart-container">
+            <div class="flowchart-title">🔄 فلوچارت مرحله دوم: از تعهدنامه تا صدور مجوز فعالیت</div>
+
+            <div class="flow-step start-end">شروع</div>
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step action">
+                شرکت متقاضی
+                <small>ارسال تعهد در خصوص احراز شرایط دریافت مجوز فعالیت توسط شرکت</small>
+            </div>
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step action">
+                صدور شماره ثبت نزد سازمان برای شرکت
+            </div>
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step decision">
+                ❓ آیا مدیران شرکت تأیید صلاحیت حرفه‌ای را از سازمان اخذ نموده‌اند؟
+            </div>
+
+            <div class="flow-branch">
+                <div>
+                    <div class="branch-label branch-no">🔴 خیر</div>
+                    <div class="flow-step warning-step">
+                        اعلام به شرکت برای اقدام
+                        <small>مراجعه به سامانه ستان و طی مراحل صلاحیت</small>
+                    </div>
+                </div>
+                <div>
+                    <div class="branch-label branch-yes">🟢 بله</div>
+                    <div class="flow-step action">ادامه فرآیند</div>
+                </div>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step decision">
+                ❓ آیا اساسنامه شرکت با اساسنامه مصوب سازمان تطبیق داده شده است؟
+            </div>
+
+            <div class="flow-branch">
+                <div>
+                    <div class="branch-label branch-no">🔴 خیر</div>
+                    <div class="flow-step warning-step">
+                        اعلام به شرکت برای اقدام
+                        <small>برگزاری مجمع فوق‌العاده و تطبیق اساسنامه</small>
+                    </div>
+                </div>
+                <div>
+                    <div class="branch-label branch-yes">🟢 بله</div>
+                    <div class="flow-step action">تأیید نهایی</div>
+                </div>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step start-end" style="background: var(--primary-color); border-color: var(--primary-color);">
+                🎉 صدور مجوز فعالیت
+            </div>
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step start-end">پایان</div>
+        </div>
+
+        <div class="callout success">
+            <span class="callout-title">✅ خروجی نهایی فلوچارت مرحله دوم:</span>
+            <ul>
+                <li>صدور «شماره ثبت» نزد سازمان بورس</li>
+                <li>تأیید صلاحیت حرفه‌ای مدیران از طریق سامانه ستان</li>
+                <li>تطبیق اساسنامه با اساسنامه نمونه سازمان</li>
+                <li>در نهایت: صدور رسمی «مجوز فعالیت» و درج نام شرکت در فهرست نهادهای مالی ثبت‌شده نزد سازمان بورس</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Section 10: SETAN System -->
+    <section id="s10">
+        <h2>۱۰. سامانه تبادل اطلاعات نهادهای مالی (سِتان)</h2>
+        <p>
+            سامانه سِتان (SETAN) ابزار الکترونیکی رسمی سازمان بورس و اوراق بهادار برای مدیریت تعاملات میان نهادهای مالی و سازمان است. یکی از کاربردهای کلیدی این سامانه در فرآیند تأسیس هلدینگ، <strong>ارسال درخواست تأیید صلاحیت حرفه‌ای مدیران پیشنهادی</strong> است.
+        </p>
+
+        <div class="callout info">
+            <span class="callout-title">🌐 اطلاعات دسترسی به سامانه:</span>
+            <ul>
+                <li><strong>آدرس الکترونیکی:</strong> <a href="http://www.setan.seo.ir" target="_blank">www.setan.seo.ir</a></li>
+                <li><strong>کاربرد اصلی در فرآیند هلدینگ:</strong> ثبت درخواست تأیید صلاحیت حرفه‌ای مدیران</li>
+                <li><strong>راهنما:</strong> راهنمای استفاده از سامانه در همان آدرس (www.setan.seo.ir) قابل دسترسی است</li>
+                <li><strong>مبنای قانونی صلاحیت مدیران:</strong> دستورالعمل مصوب شورای عالی بورس و اوراق بهادار</li>
+            </ul>
+        </div>
+
+        <h3>۱۰.۱. مراحل کلی تأیید صلاحیت مدیران از طریق ستان</h3>
+        <ol>
+            <li>ثبت‌نام شرکت متقاضی در سامانه ستان</li>
+            <li>ورود اطلاعات مدیران پیشنهادی (هیئت‌مدیره و مدیرعامل)</li>
+            <li>بارگذاری مدارک هویتی، سوابق تحصیلی، سوابق شغلی و اسناد مربوطه</li>
+            <li>ارسال درخواست به سازمان بورس</li>
+            <li>دریافت پاسخ سازمان مبنی بر تأیید یا عدم تأیید صلاحیت</li>
+        </ol>
+    </section>
+
+    <!-- Section 11: Summary -->
+    <section id="s11">
+        <h2>۱۱. جمع‌بندی و توصیه‌های عملیاتی</h2>
+
+        <h3>۱۱.۱. خلاصه دو مرحله اصلی</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>ویژگی</th>
+                    <th>مرحله اول: موافقت اصولی</th>
+                    <th>مرحله دوم: اجازه فعالیت</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>هدف</td>
+                    <td>احراز شرایط اولیه ثبت به‌عنوان نهاد مالی</td>
+                    <td>صدور مجوز نهایی فعالیت و ثبت رسمی</td>
+                </tr>
+                <tr>
+                    <td>مدارک کلیدی</td>
+                    <td>فرم تقاضا، پیش‌نویس اساسنامه، صورت‌های مالی</td>
+                    <td>تعهدنامه، صلاحیت مدیران، صورتجلسه مجمع</td>
+                </tr>
+                <tr>
+                    <td>نحوه ارسال</td>
+                    <td>حضوری به دبیرخانه سازمان</td>
+                    <td>ترکیبی (حضوری + سامانه ستان)</td>
+                </tr>
+                <tr>
+                    <td>مرجع بررسی</td>
+                    <td>کارشناس + معاونت + ریاست سازمان</td>
+                    <td>اداره نهادهای مالی</td>
+                </tr>
+                <tr>
+                    <td>خروجی</td>
+                    <td>ابلاغیه صدور یا عدم صدور موافقت اصولی</td>
+                    <td>مجوز رسمی فعالیت و درج در فهرست</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>۱۱.۲. توصیه‌های عملی برای متقاضیان</h3>
+        <div class="callout warning">
+            <ul>
+                <li><strong>پیش از هرگونه اقدام، وضعیت سرمایه شرکت را بررسی کنید:</strong> در صورتی که سرمایه کمتر از ۱۰۰ میلیارد ریال است، احتمالاً مشمول معافیت خواهید بود.</li>
+                <li><strong>مدارک را قبل از ارسال به‌طور کامل بازبینی کنید:</strong> نقص در مدارک باعث توقف فرآیند و بازگشت به ابتدا می‌شود.</li>
+                <li><strong>حسابرسی صورت‌های مالی دو سال اخیر</strong> باید توسط حسابرس معتمد سازمان بورس انجام شده باشد.</li>
+                <li><strong>«برنامه کسب و کار»</strong> را با دقت و بر مبنای واقعیت‌های اقتصادی تدوین کنید؛ این سند برای هلدینگ بسیار حیاتی است.</li>
+                <li><strong>مدیران پیشنهادی</strong> باید شرایط صلاحیت حرفه‌ای مصوب شورای عالی بورس را داشته باشند.</li>
+                <li><strong>پیش‌نویس اساسنامه</strong> باید حتماً بر اساس «اساسنامه نمونه مصوب سازمان» تنظیم شود.</li>
+                <li><strong>در مرحله دوم، مهلت تعیین‌شده توسط سازمان</strong> را جدی بگیرید؛ در صورت عدم رعایت، موافقت اصولی ممکن است باطل شود.</li>
+            </ul>
+        </div>
+
+        <h3>۱۱.۳. ضمانت اجراهای قانونی</h3>
+        <div class="callout danger">
+            <span class="callout-title">⚠️ هشدار قانونی:</span>
+            <ul>
+                <li>خودداری از ثبت نهاد مالی نزد سازمان، <strong>تخلف قانونی</strong> محسوب می‌شود.</li>
+                <li>مدیران شرکت‌های متخلف مشمول <strong>بند ۱ ماده ۴۹ قانون بازار اوراق بهادار</strong> خواهند شد.</li>
+                <li>سازمان ثبت اسناد و املاک، بدون مجوز سازمان بورس، از ثبت نهاد مالی خودداری خواهد کرد.</li>
+                <li>هرگونه تغییر بعدی در اساسنامه و سرمایه نیز نیازمند تأیید سازمان بورس است.</li>
+            </ul>
+        </div>
+
+        <h3>۱۱.۴. مراجع قانونی مورد استناد در این گزارش</h3>
+        <ul>
+            <li>بند «ث» ماده ۳۶ قانون احکام دائمی برنامه‌های توسعه کشور</li>
+            <li>بند ۶ ماده ۷ قانون بازار اوراق بهادار جمهوری اسلامی ایران</li>
+            <li>بند ۲۲ ماده ۱ قانون بازار اوراق بهادار (تعریف هلدینگ)</li>
+            <li>بند ۱ ماده ۴۹ قانون بازار اوراق بهادار (تخلفات)</li>
+            <li>ماده ۲۹ قانون بازار اوراق بهادار (حداقل سرمایه)</li>
+            <li>ماده ۴ آیین‌نامه اجرایی قانون بازار اوراق بهادار (مصادیق نهادهای مالی)</li>
+            <li>قانون توسعه ابزارها و نهادهای مالی جدید (اجرای اصل ۴۴ قانون اساسی)</li>
+            <li>مصوبه هیئت‌مدیره سازمان بورس مورخ ۱۳۹۱/۰۴/۱۵ (معافیت از ثبت)</li>
+            <li>مصوبه هیئت‌مدیره سازمان بورس مورخ ۱۳۹۱/۰۶/۲۵ (حداقل سرمایه ۱۰۰ میلیارد ریال)</li>
+            <li>ابلاغیه شماره ۱۲۰۲۰۰۱۶ مدیریت نظارت بر نهادهای مالی</li>
+            <li>دستورالعمل شناسایی و ثبت نهادهای مالی فعال در بازار اوراق بهادار نزد سازمان</li>
+            <li>دستورالعمل تأیید صلاحیت حرفه‌ای مدیران نهادهای مالی (مصوب شورای عالی بورس)</li>
+        </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div>
+            📘 <strong>گزارش جامع و تفصیلی راهنمای تأسیس شرکت‌های مادر (هلدینگ)</strong>
+        </div>
+        <div class="credit">
+            تهیه و تنظیم بر اساس اسناد رسمی سازمان بورس و اوراق بهادار ایران<br>
+            مرجع: <a href="http://www.seo.ir" target="_blank">www.seo.ir</a> | سامانه ستان: <a href="http://www.setan.seo.ir" target="_blank">www.setan.seo.ir</a>
+        </div>
+    </footer>
+
+</div>
+
+</body>
+</html>
