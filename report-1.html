@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>گزارش راهبردی هیئت مدیره - تأسیس هلدینگ مهرسا</title>
+    <!-- آیکون تب مرورگر -->
+    <link rel="icon" type="image/png" href="https://frhdys.github.io/mehrsa/logo1.png">
+    
+    <!-- بارگذاری مطمئن و مستقیم فونت وزیرمتن از گوگل‌فونتس و CDN پشتیبان -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.0.0/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+
+    <style>
+        :root {
+            --primary-color: #1e3a8a; /* سرمه ای سازمانی */
+            --primary-light: #eff6ff;
+            --secondary-color: #0f766e;
+            --secondary-light: #f0fdfa;
+            --gold-color: #b45309; /* طلایی/برنزی سازمانی */
+            --gold-light: #fffbeb;
+            --danger-color: #b91c1c;
+            --danger-light: #fef2f2;
+            --success-color: #15803d;
+            --success-light: #f0fdf4;
+            --bg-color: #f1f5f9;
+            --text-color: #0f172a;
+            --text-muted: #475569;
+            --border-color: #cbd5e1;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        /* اعمال اجباری فونت وزیرمتن به کل سند */
+        body, button, input, select, textarea, table, h1, h2, h3, h4, h5, h6, p, a, span, div, li {
+            font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 2;
+            padding: 20px;
+            font-size: 15.5px;
+            overflow-x: hidden;
+        }
+
+        /* --- واترمارک پس‌زمینه (Watermark) --- */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70vw;
+            height: 70vh;
+            background-image: url('https://frhdys.github.io/mehrsa/logo1.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            opacity: 0.04;
+            z-index: -1; 
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.96);
+            padding: 45px;
+            border-radius: 16px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255,255,255,0.5);
+            backdrop-filter: blur(5px);
+            position: relative;
+        }
+
+        /* --- انیمیشن‌های کلیدی --- */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 0 0 rgba(180, 83, 9, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(180, 83, 9, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(180, 83, 9, 0); }
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Header & Logos */
+        header {
+            text-align: center;
+            border-bottom: 4px double var(--primary-color);
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+            animation: fadeUp 1s ease-out forwards;
+        }
+
+        .main-logo {
+            max-height: 110px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 6px 10px rgba(0,0,0,0.15));
+            animation: float 5s ease-in-out infinite;
+        }
+
+        /* روبان اختصاصی هیئت مدیره */
+        .board-badge {
+            background: linear-gradient(135deg, var(--primary-color), #312e81);
+            color: #fef08a; 
+            padding: 12px 30px;
+            border-radius: 50px;
+            display: inline-block;
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            border: 2px solid var(--gold-color);
+            animation: pulseGlow 3s infinite;
+        }
+
+        header .badge {
+            background-color: var(--primary-light); color: var(--primary-color);
+            font-size: 0.85rem; font-weight: bold; padding: 6px 18px; border-radius: 50px;
+            display: inline-block; margin-bottom: 15px; border: 1px solid #bfdbfe;
+        }
+        header h1 { color: var(--primary-color); font-size: 2.1rem; margin-bottom: 12px; line-height: 1.5; font-weight: 900; }
+        header .subtitle { color: var(--text-muted); font-size: 1.05rem; }
+        header .meta-info { margin-top: 20px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; font-size: 0.85rem; color: var(--text-muted); }
+        header .meta-info span { background: #f8fafc; padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border-color); }
+
+        /* Table of Contents */
+        .toc {
+            background: var(--primary-light); border: 1px solid #bfdbfe; border-radius: 12px;
+            padding: 25px; margin-bottom: 40px; transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .toc:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .toc h2 { color: var(--primary-color); font-size: 1.3rem; margin-bottom: 15px; border: none; padding: 0; }
+        .toc ol { margin-right: 20px; }
+        .toc a { color: var(--primary-color); text-decoration: none; font-weight: 600; transition: color 0.2s; }
+        .toc a:hover { color: var(--gold-color); }
+
+        /* Sections */
+        section { margin-bottom: 45px; padding-top: 15px; }
+        h2 {
+            color: var(--primary-color); font-size: 1.6rem; border-right: 6px solid var(--gold-color);
+            padding-right: 15px; margin-bottom: 25px; padding-bottom: 8px; border-bottom: 1px dashed var(--border-color);
+            font-weight: 800;
+        }
+        h3 { color: var(--secondary-color); font-size: 1.2rem; margin: 25px 0 12px 0; padding-right: 10px; border-right: 4px solid var(--secondary-color); font-weight: 700; }
+        h4 { color: var(--gold-color); font-size: 1.05rem; margin: 20px 0 10px 0; font-weight: bold; }
+        p { margin-bottom: 15px; text-align: justify; }
+        strong { color: var(--primary-color); }
+
+        /* Callouts */
+        .callout { padding: 18px 22px; border-radius: 10px; margin: 20px 0; border-right: 5px solid; background: #fff; transition: transform 0.3s, box-shadow 0.3s;}
+        .callout:hover { transform: scale(1.01); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .callout.info { background-color: rgba(239, 246, 255, 0.8); border-color: var(--primary-color); }
+        .callout.success { background-color: rgba(240, 253, 244, 0.8); border-color: var(--success-color); }
+        .callout.warning { background-color: rgba(255, 251, 235, 0.8); border-color: var(--gold-color); }
+        .callout.danger { background-color: rgba(254, 242, 242, 0.8); border-color: var(--danger-color); }
+        .callout.law { background-color: rgba(248, 250, 252, 0.9); border-color: var(--primary-color); border: 1px solid var(--border-color); border-right-width: 5px; }
+        .callout-title { font-weight: bold; display: block; margin-bottom: 8px; font-size: 1.05rem; }
+        ul, ol { margin-right: 28px; margin-bottom: 20px; }
+        li { margin-bottom: 10px; text-align: justify; }
+
+        /* Document Grid */
+        .doc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 15px; margin: 25px 0; }
+        .doc-card {
+            background: rgba(248, 250, 252, 0.9); border: 1px solid var(--border-color);
+            border-radius: 10px; padding: 16px; display: flex; align-items: flex-start; gap: 12px; transition: all 0.3s ease;
+        }
+        .doc-card:hover { background: var(--primary-light); border-color: var(--primary-color); transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.08);}
+        .doc-card .icon {
+            background: var(--gold-color); color: white; width: 32px; height: 32px; min-width: 32px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;
+        }
+        .doc-card .content strong { display: block; margin-bottom: 4px; color: var(--text-color); }
+        .doc-card .content small { color: var(--text-muted); font-size: 0.85rem; }
+
+        /* Tables */
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        thead { background: var(--primary-color); color: white; }
+        th, td { padding: 12px 15px; text-align: right; border-bottom: 1px solid var(--border-color); background: rgba(255,255,255,0.7); }
+        tbody tr:nth-child(even) td { background: rgba(248, 250, 252, 0.7); }
+        tbody tr { transition: background 0.2s; }
+        tbody tr:hover td { background: var(--primary-light); }
+
+        /* Flowchart */
+        .flowchart-container {
+            background: linear-gradient(to bottom, rgba(250, 250, 250, 0.9), rgba(241, 245, 249, 0.9));
+            border: 1px solid var(--border-color); border-radius: 12px; padding: 30px 20px; margin: 25px 0;
+            position: relative; overflow: hidden;
+        }
+        .flow-logo { position: absolute; top: 15px; left: 20px; max-height: 40px; opacity: 0.8; }
+        .flowchart-title { text-align: center; font-weight: bold; color: var(--primary-color); margin-bottom: 25px; font-size: 1.1rem; }
+        .flow-step {
+            background: white; border: 2px solid var(--primary-color); border-radius: 8px;
+            padding: 12px 20px; text-align: center; max-width: 480px; margin: 0 auto; font-weight: 600; box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .flow-step:hover { transform: scale(1.03); box-shadow: 0 8px 15px rgba(0,0,0,0.1); z-index: 2; position: relative;}
+        .flow-step small { display: block; font-weight: normal; color: var(--text-muted); margin-top: 4px; font-size: 0.85rem; }
+        .flow-step.start-end { background: var(--secondary-color); color: white; border-color: var(--secondary-color); border-radius: 50px; max-width: 200px; }
+        .flow-step.decision { background: var(--gold-light); border-color: var(--gold-color); color: var(--gold-color); border-radius: 15px; }
+        .flow-step.action { background: #e0f2fe; border-color: #0284c7; }
+        .flow-step.warning-step { background: var(--danger-light); border-color: var(--danger-color); color: var(--danger-color); }
+        .flow-arrow { text-align: center; font-size: 1.8rem; color: var(--text-muted); margin: 6px 0; line-height: 1; animation: float 2s infinite;}
+        .flow-branch { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 700px; margin: 10px auto; }
+        .branch-label { text-align: center; font-size: 0.85rem; font-weight: bold; padding: 4px 8px; border-radius: 5px; display: inline-block; margin-bottom: 5px; }
+        .branch-yes { color: var(--success-color); }
+        .branch-no { color: var(--danger-color); }
+        .highlight-num { background: var(--gold-color); color: white; padding: 2px 10px; border-radius: 20px; font-weight: bold; display: inline-block; }
+
+        /* Official Doc */
+        .official-doc {
+            border: 2px solid var(--secondary-color); padding: 25px; border-radius: 10px;
+            background-color: rgba(240, 253, 250, 0.9); margin: 25px 0; position: relative;
+            transition: transform 0.3s;
+        }
+        .official-doc:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .official-doc::before {
+            content: "ابلاغیه رسمی سازمان بورس"; position: absolute; top: -12px; right: 20px;
+            background: var(--secondary-color); color: white; padding: 3px 15px; border-radius: 5px; font-size: 0.85rem; font-weight: bold;
+        }
+        .doc-header { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; border-bottom: 2px solid #99f6e4; padding-bottom: 12px; margin-bottom: 15px; font-size: 0.9rem; }
+        .doc-signature { margin-top: 20px; padding-top: 15px; border-top: 1px dashed #99f6e4; text-align: left; font-size: 0.9rem; color: var(--text-muted); }
+        .doc-signature .signer-name { font-weight: bold; color: var(--text-color); font-size: 1rem; }
+
+        /* Footer */
+        footer { text-align: center; border-top: 2px solid var(--border-color); padding-top: 30px; margin-top: 50px; color: var(--text-muted); font-size: 0.9rem; }
+        .footer-logo { max-height: 60px; margin-bottom: 15px; filter: grayscale(20%); transition: filter 0.3s, transform 0.3s;}
+        .footer-logo:hover { filter: grayscale(0%); transform: scale(1.1);}
+        footer .credit { margin-top: 10px; font-size: 0.8rem; }
+
+        @media (max-width: 768px) {
+            .container { padding: 20px; }
+            header h1 { font-size: 1.5rem; }
+            .board-badge { font-size: 0.95rem; padding: 8px 15px; }
+            .flow-branch { grid-template-columns: 1fr; }
+            .doc-header { grid-template-columns: 1fr; }
+            body::before { width: 90vw; height: 90vh; }
+        }
+
+        @media print {
+            body { background: white; padding: 0; }
+            body::before { opacity: 0.02; } 
+            .container { box-shadow: none; border: none; padding: 0; }
+            .board-badge { color: #000; border: 1px solid #000; background: #eee; }
+            .animate-on-scroll { opacity: 1; transform: none; transition: none; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Header -->
+    <header>
+        <img src="https://frhdys.github.io/mehrsa/logo1.png" alt="لوگوی هلدینگ مهرسا" class="main-logo">
+        <br>
+        
+        <div class="board-badge">
+            این گزارش جهت ارائه به هیئت مدیره هلدینگ مهرسا تهیه شده است.
+        </div>
+        <br>
+
+        <span class="badge">سازمان بورس و اوراق بهادار ایران (SEO)</span>
+        <h1>گزارش جامع و تفصیلی راهنمای اعطای مجوز نهاد مالی<br>«شرکت مادر (هلدینگ)»</h1>
+        <p class="subtitle">مراحل قانونی، مدارک الزامی، ضوابط سرمایه، و فرآیند اجرایی صدور مجوز تأسیس و تبدیل</p>
+        <div class="meta-info">
+            <span>📚 مرجع: www.seo.ir</span>
+            <span>🏛 مرجع صدور: هیئت‌مدیره سازمان بورس</span>
+            <span>📄 دستورالعمل شناسایی و ثبت نهادهای مالی</span>
+        </div>
+    </header>
+
+    <!-- Table of Contents -->
+    <nav class="toc animate-on-scroll">
+        <h2>📑 فهرست مطالب</h2>
+        <ol>
+            <li><a href="#s1">مقدمه و مبانی قانونی</a></li>
+            <li><a href="#s2">تعریف شرکت مادر (هلدینگ) و جایگاه آن</a></li>
+            <li><a href="#s3">ضوابط حداقل سرمایه و شرایط معافیت از ثبت (ابلاغیه رسمی)</a></li>
+            <li><a href="#s4">مدارک الزامی برای ارسال درخواست تأسیس یا تبدیل</a></li>
+            <li><a href="#s5">مرحله بررسی درخواست توسط کارشناس</a></li>
+            <li><a href="#s6">مرحله اول: صدور موافقت اصولی (تفصیلی)</a></li>
+            <li><a href="#s7">مرحله دوم: صدور اجازه فعالیت (تفصیلی)</a></li>
+            <li><a href="#s8">فلوچارت اجرایی مرحله اول (بررسی و موافقت اصولی)</a></li>
+            <li><a href="#s9">فلوچارت اجرایی مرحله دوم (صدور مجوز فعالیت)</a></li>
+            <li><a href="#s10">سامانه تبادل اطلاعات نهادهای مالی (سِتان)</a></li>
+            <li><a href="#s11">جمع‌بندی و توصیه‌های عملیاتی</a></li>
+        </ol>
+    </nav>
+
+    <!-- Section 1: Introduction -->
+    <section id="s1">
+        <h2 class="animate-on-scroll">۱. مقدمه و مبانی قانونی</h2>
+        <p class="animate-on-scroll">
+            فرآیند تأسیس یا تبدیل یک شرکت به «شرکت مادر (هلدینگ)» و ثبت آن به‌عنوان یک «نهاد مالی» نزد سازمان بورس و اوراق بهادار، یک فرآیند کاملاً قانونی و مبتنی بر مستندات صریح در قوانین بالادستی کشور است. سازمان بورس و اوراق بهادار (SEO) به موجب تکالیف قانونی زیر، متولی صدور مجوز تأسیس و اجازه فعالیت نهادهای مالی است.
+        </p>
+
+        <h3 class="animate-on-scroll">۱.۱. بند «ث» ماده ۳۶ قانون احکام دائمی برنامه‌های توسعه کشور</h3>
+        <div class="callout law animate-on-scroll">
+            <span class="callout-title">📜 متن قانون:</span>
+            «اعضای هیئت‌مدیره و مدیرعامل تمامی اشخاص حقوقی که تحت یکی از عناوین نهادهای مالی موضوع قانون بازار اوراق بهادار جمهوری اسلامی ایران و یا قانون توسعه ابزارها و نهادهای مالی جدید به‌منظور تسهیل اجرای سیاست‌های کلی اصل چهل و چهارم (۴۴) قانون اساسی تاکنون تشکیل شده‌اند و نزد مرجع ثبت شرکت‌ها در سراسر کشور به ثبت رسیده‌اند و نیز آن دسته از اشخاص حقوقی که موضوع فعالیت اصلی آن‌ها نهاد مالی است، موظف‌اند نهاد مالی تحت مدیریت خود را نزد سازمان بورس و اوراق بهادار به ثبت برسانند.»
+            <br><br>
+            <strong>ضمانت اجرا:</strong> خودداری از ثبت نهاد مالی <strong>تخلف محسوب می‌شود</strong> و فعالیت مدیران آن‌ها مشمول <strong>بند ۱ ماده ۴۹ قانون بازار اوراق بهادار</strong> جمهوری اسلامی ایران است.
+        </div>
+
+        <h3 class="animate-on-scroll">۱.۲. بند ۶ ماده ۷ قانون بازار اوراق بهادار جمهوری اسلامی ایران</h3>
+        <div class="callout law animate-on-scroll">
+            <span class="callout-title">📜 متن قانون:</span>
+            «صدور، تعلیق و لغو مجوز تأسیس کانون‌ها و نهادهای مالی که در حوزه عمل مستقیم شورا نیست»، ذیل <strong>وظایف و اختیارات هیئت‌مدیره سازمان بورس و اوراق بهادار</strong> تعریف شده است.
+        </div>
+    </section>
+
+    <!-- Section 2: Definition -->
+    <section id="s2">
+        <h2 class="animate-on-scroll">۲. تعریف شرکت مادر (هلدینگ) و جایگاه آن به‌عنوان نهاد مالی</h2>
+        <p class="animate-on-scroll">
+            شرکت‌های مادر (هلدینگ) بر اساس <strong>ماده ۴ آیین‌نامه اجرایی قانون بازار اوراق بهادار</strong>، از مصادیق نهادهای مالی محسوب می‌شوند و لذا مشمول تمامی الزامات ثبت نزد سازمان بورس هستند.
+        </p>
+        <div class="callout info animate-on-scroll">
+            <span class="callout-title">📖 تعریف قانونی:</span>
+            «شرکت‌های مادر (هلدینگ) شرکت‌هایی هستند که با سرمایه‌گذاری در شرکت سرمایه‌پذیر جهت کسب انتفاع، آن‌قدر حق رأی کسب می‌کنند که برای کنترل عملیات شرکت، هیئت‌مدیره را انتخاب کنند و یا در انتخاب اعضای هیئت‌مدیره مؤثر باشند.»
+        </div>
+        <table class="animate-on-scroll">
+            <thead>
+                <tr>
+                    <th>ویژگی</th>
+                    <th>شرح تفصیلی</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>ماهیت حقوقی</strong></td><td>نهاد مالی موضوع قانون بازار اوراق بهادار</td></tr>
+                <tr><td><strong>هدف اصلی</strong></td><td>سرمایه‌گذاری در شرکت‌های سرمایه‌پذیر جهت کسب انتفاع</td></tr>
+                <tr><td><strong>معیار کنترل</strong></td><td>کسب حق رأی کافی برای انتخاب هیئت‌مدیره یا تأثیرگذاری در انتخاب</td></tr>
+                <tr><td><strong>ساختار گروه</strong></td><td>تشکیل «گروه شرکت‌ها» متشکل از هلدینگ و شرکت‌های زیرمجموعه</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Section 3: Capital & Exemption -->
+    <section id="s3">
+        <h2 class="animate-on-scroll">۳. ضوابط حداقل سرمایه و شرایط معافیت از ثبت</h2>
+        <div class="official-doc animate-on-scroll">
+            <div class="doc-header">
+                <div><strong>شماره ابلاغیه:</strong> ۱۲۰۲۰۰۱۶</div>
+                <div><strong>صادرکننده:</strong> مدیریت نظارت بر نهادهای مالی</div>
+            </div>
+            <h4>الف) مصوبه شرایط معافیت از ثبت (مورخ ۱۳۹۱/۰۴/۱۵)</h4>
+            <p>
+                آن دسته از اشخاص حقوقی که نسبت به انجام فعالیت‌های سرمایه‌گذاری یا مادر (هلدینگ) اقدام می‌نمایند، لکن سرمایه آن‌ها حسب مورد از حداقل تعیین‌شده کمتر است، از ثبت نزد سازمان <strong>معاف</strong> هستند.
+            </p>
+            <h4>ب) مصوبه اصلاح حداقل سرمایه (مورخ ۱۳۹۱/۰۶/۲۵)</h4>
+            <div class="callout danger">
+                «در اجرای <strong>ماده ۲۹ قانون بازار اوراق بهادار</strong>، حداقل سرمایه شرکت‌های سرمایه‌گذاری و مادر (هلدینگ) مبلغ <span class="highlight-num">۱۰۰ میلیارد ریال (۱۰ میلیارد تومان)</span> تعیین می‌گردد.»
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Documents -->
+    <section id="s4">
+        <h2 class="animate-on-scroll">۴. مدارک الزامی برای ارسال درخواست تأسیس یا تبدیل</h2>
+        <div class="doc-grid">
+            <div class="doc-card animate-on-scroll"><div class="icon">۱</div><div class="content"><strong>صورت‌های مالی حسابرسی‌شده</strong><small>مربوط به دو سال اخیر، با گزارش بازرس قانونی</small></div></div>
+            <div class="doc-card animate-on-scroll"><div class="icon">۲</div><div class="content"><strong>آخرین اساسنامه نهاد مالی</strong><small>نسخه معتبر و کامل اساسنامه ثبت‌شده</small></div></div>
+            <div class="doc-card animate-on-scroll"><div class="icon">۳</div><div class="content"><strong>روزنامه رسمی صاحبان امضا</strong><small>جهت تطبیق و احراز هویت</small></div></div>
+            <div class="doc-card animate-on-scroll"><div class="icon">۴</div><div class="content"><strong>آگهی تأسیس و تغییرات</strong><small>شامل کلیه تغییرات ثبتی پس از تأسیس</small></div></div>
+            <div class="doc-card animate-on-scroll"><div class="icon">۵</div><div class="content"><strong>برنامه کسب و کار (Business Plan)</strong><small>ویژه شرکت‌های مادر (هلدینگ)</small></div></div>
+        </div>
+    </section>
+
+    <!-- Section 5: Expert Review -->
+    <section id="s5">
+        <h2 class="animate-on-scroll">۵. مرحله بررسی درخواست توسط کارشناس</h2>
+        <p class="animate-on-scroll">پس از ارسال مدارک، درخواست متقاضی توسط کارشناسان بررسی می‌گردد. نتایج به یکی از اشکال زیر خواهد بود:</p>
+        <ol class="animate-on-scroll">
+            <li><strong>عدم نقص مدارک:</strong> ادامه فرآیند و تهیه گزارش برای سازمان.</li>
+            <li><strong>وجود نقص:</strong> اعلام نواقص به متقاضی.</li>
+            <li><strong>عدم احراز شرایط:</strong> بررسی مشمولیت شرط معافیت.</li>
+        </ol>
+    </section>
+
+    <!-- Section 6: Stage 1 -->
+    <section id="s6">
+        <h2 class="animate-on-scroll">۶. مرحله اول: صدور موافقت اصولی</h2>
+        <p class="animate-on-scroll">
+            متقاضیان باید مدارکی همچون فرم تقاضا، پیش‌نویس اساسنامه نمونه، و صورت‌های مالی حسابرسی‌شده شرکت و <strong>سهامداران عمده</strong> را به‌صورت حضوری به دبیرخانه ارسال نمایند. سازمان پس از احراز شرایط، موافقت اصولی خود را اعلام می‌نماید.
+        </p>
+    </section>
+
+    <!-- Section 7: Stage 2 -->
+    <section id="s7">
+        <h2 class="animate-on-scroll">۷. مرحله دوم: صدور اجازه فعالیت</h2>
+        <p class="animate-on-scroll">پس از دریافت موافقت اصولی، هلدینگ متقاضی باید مراحل زیر را طی کند:</p>
+        <ul class="animate-on-scroll">
+            <li>ارسال تعهدنامه رعایت الزامات با امضای مجاز.</li>
+            <li>اخذ تأیید صلاحیت حرفه‌ای مدیران از طریق سامانه ستان.</li>
+            <li>برگزاری مجمع عمومی فوق‌العاده جهت تصویب اساسنامه نمونه سازمان.</li>
+        </ul>
+    </section>
+
+    <!-- Section 8: Flowchart Stage 1 -->
+    <section id="s8">
+        <h2 class="animate-on-scroll">۸. فلوچارت اجرایی مرحله اول (بررسی درخواست)</h2>
+        <div class="flowchart-container animate-on-scroll">
+            <!-- لوگوی مهرسا در گوشه فلوچارت -->
+            <img src="https://frhdys.github.io/mehrsa/logo1.png" alt="مهرسا" class="flow-logo">
+            
+            <div class="flowchart-title">از ارسال درخواست تا صدور موافقت اصولی</div>
+            <div class="flow-step start-end animate-on-scroll">شروع</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step action animate-on-scroll">متقاضی به اداره امور نهادها<small>ارسال درخواست و مدارک لازم</small></div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step action animate-on-scroll">بررسی درخواست توسط کارشناس</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step decision animate-on-scroll">❓ آیا مدارک نقص دارد؟</div>
+            <div class="flow-branch animate-on-scroll">
+                <div><div class="branch-label branch-no">🔴 بله</div><div class="flow-step warning-step">اعلام نواقص به متقاضی</div></div>
+                <div><div class="branch-label branch-yes">🟢 خیر</div><div class="flow-step action">تهیه گزارش برای معاونت و ریاست</div></div>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step action animate-on-scroll">بررسی نهایی در ریاست سازمان</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step start-end animate-on-scroll">اعلام نتیجه (موافقت/عدم موافقت)</div>
+        </div>
+    </section>
+
+    <!-- Section 9: Flowchart Stage 2 -->
+    <section id="s9">
+        <h2 class="animate-on-scroll">۹. فلوچارت اجرایی مرحله دوم (صدور مجوز فعالیت)</h2>
+        <div class="flowchart-container animate-on-scroll">
+            <!-- لوگوی مهرسا در گوشه فلوچارت -->
+            <img src="https://frhdys.github.io/mehrsa/logo1.png" alt="مهرسا" class="flow-logo">
+
+            <div class="flowchart-title">از تعهدنامه تا صدور مجوز فعالیت</div>
+            <div class="flow-step start-end animate-on-scroll">شروع مرحله دوم</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step action animate-on-scroll">ارسال تعهدنامه و صدور شماره ثبت اولیه</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step decision animate-on-scroll">❓ آیا مدیران تأیید صلاحیت شده‌اند؟</div>
+            <div class="flow-arrow">↓ <small>بله</small></div>
+            <div class="flow-step decision animate-on-scroll">❓ آیا اساسنامه تطبیق داده شده است؟</div>
+            <div class="flow-arrow">↓ <small>بله</small></div>
+            <div class="flow-step start-end animate-on-scroll" style="background: var(--gold-color); border-color: var(--gold-color);">🎉 صدور مجوز فعالیت هلدینگ</div>
+        </div>
+    </section>
+
+    <!-- Section 10: SETAN System -->
+    <section id="s10">
+        <h2 class="animate-on-scroll">۱۰. سامانه تبادل اطلاعات نهادهای مالی (سِتان)</h2>
+        <div class="callout info animate-on-scroll">
+            <span class="callout-title">🌐 اطلاعات سامانه:</span>
+            جهت اخذ تأیید صلاحیت حرفه‌ای اعضای هیئت مدیره و مدیرعامل هلدینگ، بایستی به آدرس <strong>www.setan.seo.ir</strong> مراجعه و مدارک هویتی، تحصیلی و شغلی مدیران جهت بررسی سازمان بورس در آن بارگذاری گردد.
+        </div>
+    </section>
+
+    <!-- Section 11: Summary -->
+    <section id="s11">
+        <h2 class="animate-on-scroll">۱۱. توصیه‌های عملیاتی برای هیئت مدیره هلدینگ مهرسا</h2>
+        <div class="callout warning animate-on-scroll">
+            <ul>
+                <li><strong>حداقل سرمایه:</strong> تأمین و حفظ حداقل ۱۰۰ میلیارد ریال سرمایه برای ثبت هلدینگ الزامی است.</li>
+                <li><strong>برنامه کسب و کار:</strong> تدوین یک BP قدرتمند که نشان‌دهنده استراتژی تملک و کنترل زیرمجموعه‌ها باشد، برای اخذ موافقت سازمان حیاتی است.</li>
+                <li><strong>حسابرسی:</strong> صورت‌های مالی دو سال اخیر هلدینگ و سهامداران عمده حتماً باید توسط حسابرس معتمد سازمان بورس صادر شده باشد.</li>
+                <li><strong>صلاحیت مدیران:</strong> اعضای پیشنهادی هیئت مدیره باید واجد شرایط مصوب شورای عالی بورس باشند.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="animate-on-scroll">
+        <img src="https://frhdys.github.io/mehrsa/logo1.png" alt="هلدینگ مهرسا" class="footer-logo">
+        <br>
+        <div>
+            📘 <strong>گزارش راهبردی و اجرایی تأسیس شرکت مادر (هلدینگ) مهرسا</strong>
+        </div>
+        <div class="credit">
+            تهیه و تدوین اختصاصی جهت ارائه به اعضای محترم هیئت مدیره<br>
+            مبتنی بر دستورالعمل‌های رسمی سازمان بورس و اوراق بهادار ایران (SEO)
+        </div>
+    </footer>
+
+</div>
+
+<!-- اسکریپت جاوااسکریپت برای انیمیشن‌های اسکرول -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const animatedElements = document.querySelectorAll('.animate-on-scroll');
+        animatedElements.forEach((el, index) => {
+            el.style.transitionDelay = `${(index % 3) * 0.12}s`;
+            observer.observe(el);
+        });
+    });
+</script>
+
+</body>
+</html>
