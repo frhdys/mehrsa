@@ -170,7 +170,7 @@
         .doc-card .content strong { display: block; margin-bottom: 4px; color: var(--text-color); }
         .doc-card .content small { color: var(--text-muted); font-size: 0.85rem; }
 
-        /* Chart Images Grid */
+        /* Chart Images Grid & Lightbox Features */
         .chart-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -184,6 +184,7 @@
             border: 1px solid var(--border-color);
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: transform 0.3s;
+            position: relative; /* برای قرارگیری متن راهنما */
         }
         .chart-wrapper:hover {
             transform: translateY(-5px);
@@ -208,6 +209,72 @@
             border-radius: 8px;
             border: 1px solid #e2e8f0;
             display: block;
+            cursor: zoom-in; /* نشانگر موس به شکل ذره بین */
+            transition: filter 0.3s;
+        }
+        .chart-image:hover {
+            filter: brightness(0.95);
+        }
+        .zoom-hint {
+            position: absolute;
+            bottom: 25px;
+            right: 25px;
+            background: rgba(30, 58, 138, 0.85);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            backdrop-filter: blur(2px);
+        }
+        .chart-wrapper:hover .zoom-hint {
+            opacity: 1;
+        }
+
+        /* Lightbox Modal CSS */
+        .modal {
+            display: none; /* پیش فرض پنهان است */
+            position: fixed;
+            z-index: 9999;
+            padding-top: 40px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 23, 42, 0.92); /* رنگ تاریک شفاف */
+            backdrop-filter: blur(6px);
+            text-align: center;
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90vw;
+            max-height: 85vh;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            animation: zoomInModal 0.3s ease;
+        }
+        @keyframes zoomInModal {
+            from {transform:scale(0.9); opacity:0;}
+            to {transform:scale(1); opacity:1;}
+        }
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: #f1f5f9;
+            font-size: 45px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .close-modal:hover,
+        .close-modal:focus {
+            color: var(--gold-color);
+            text-decoration: none;
+            cursor: pointer;
         }
 
         /* Vs Grid (Comparison Text) */
@@ -253,6 +320,7 @@
             .kpi-grid { grid-template-columns: 1fr 1fr; }
             .vs-container { grid-template-columns: 1fr; }
             .chart-grid { grid-template-columns: 1fr; }
+            .modal-content { max-width: 95vw; }
         }
     </style>
 </head>
@@ -409,24 +477,27 @@
         </div>
     </section>
 
-    <!-- Section 6: Dollar Comparison with Charts -->
+    <!-- Section 6: Dollar Comparison with Clickable Charts -->
     <section id="s6">
         <h2 class="animate-on-scroll">۶. تحلیل مقایسه‌ای ارزش دلاری بازار (خپارس vs خودرو)</h2>
         <p class="animate-on-scroll">
             بررسی نمودارهای ارزش دلاری بازار (Market Cap in Million USD) از سال ۲۰۱۰ تا کنون، دیدگاه بسیار متفاوتی نسبت به تحلیل صرفاً ریالی به ما می‌دهد. این تحلیل نشان می‌دهد که با وجود رشد اسمی قیمت سهام در بازار ایران، ارزش واقعی دلاری این دو شرکت پس از پیک ۱۳۹۹ (۲۰۲۰) به شدت تضعیف شده است.
         </p>
 
-        <!-- گالری چارت های تصویری -->
+        <!-- گالری چارت های تصویری با قابلیت کلیک -->
         <div class="chart-grid animate-on-scroll">
             <div class="chart-wrapper">
                 <h4>نمودار ارزش دلاری بازار - نماد خپارس</h4>
                 <p class="chart-subtitle">روند تاریخی Market Cap (میلیون دلار)</p>
-                <img src="https://frhdys.github.io/mehrsa/khapars-chart.jpg" alt="چارت ارزش دلاری خپارس" class="chart-image">
+                <!-- کلاس chart-image به جاوااسکریپت برای کلیک متصل است -->
+                <img src="https://frhdys.github.io/mehrsa/khapars-chart.jpg" alt="چارت ارزش دلاری خپارس" class="chart-image" id="img-khapars">
+                <span class="zoom-hint">🔍 کلیک برای بزرگنمایی</span>
             </div>
             <div class="chart-wrapper">
                 <h4>نمودار ارزش دلاری بازار - نماد خودرو</h4>
                 <p class="chart-subtitle">روند تاریخی Market Cap (میلیون دلار)</p>
-                <img src="https://frhdys.github.io/mehrsa/khodro-chart.jpg" alt="چارت ارزش دلاری خودرو" class="chart-image">
+                <img src="https://frhdys.github.io/mehrsa/khodro-chart.jpg" alt="چارت ارزش دلاری خودرو" class="chart-image" id="img-khodro">
+                <span class="zoom-hint">🔍 کلیک برای بزرگنمایی</span>
             </div>
         </div>
 
@@ -568,9 +639,17 @@
 
 </div>
 
-<!-- اسکریپت انیمیشن اسکرول -->
+<!-- مُدال (پنجره پاپ‌آپ) برای بزرگنمایی تصاویر -->
+<div id="imageModal" class="modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="expandedImg">
+</div>
+
+<!-- اسکریپت جاوااسکریپت (انیمیشن‌ها + قابلیت بزرگنمایی عکس) -->
 <script>
     document.addEventListener("DOMContentLoaded", function() {
+        
+        // --- بخش 1: انیمیشن اسکرول ---
         const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
@@ -580,11 +659,38 @@
                 }
             });
         }, observerOptions);
+        
         const animatedElements = document.querySelectorAll('.animate-on-scroll');
         animatedElements.forEach((el, index) => {
             el.style.transitionDelay = `${(index % 3) * 0.12}s`;
             observer.observe(el);
         });
+
+        // --- بخش 2: قابلیت Lightbox (بزرگنمایی تصاویر) ---
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("expandedImg");
+        const images = document.querySelectorAll(".chart-image");
+        const closeBtn = document.getElementsByClassName("close-modal")[0];
+
+        // با کلیک روی هر چارت، مدال باز شده و سورس عکس به آن منتقل می‌شود
+        images.forEach(img => {
+            img.onclick = function(){
+                modal.style.display = "flex"; // نمایش مدال در وسط صفحه
+                modalImg.src = this.src;
+            }
+        });
+
+        // بسته شدن مدال با کلیک روی ضربدر
+        closeBtn.onclick = function() { 
+            modal.style.display = "none";
+        }
+
+        // بسته شدن مدال با کلیک روی فضای تاریک بیرون عکس
+        modal.onclick = function(e) {
+            if (e.target !== modalImg) {
+                modal.style.display = "none";
+            }
+        }
     });
 </script>
 
