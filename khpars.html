@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>گزارش جامع تحلیلی نماد خپارس و مقایسه دلاری با نماد خودرو</title>
+    <!-- آیکون تب مرورگر -->
+    <link rel="icon" type="image/png" href="https://frhdys.github.io/mehrsa/logo1.png">
+    
+    <!-- بارگذاری مطمئن و مستقیم فونت وزیرمتن -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.0.0/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --primary-light: #eff6ff;
+            --secondary-color: #0f766e;
+            --secondary-light: #f0fdfa;
+            --gold-color: #b45309;
+            --gold-light: #fffbeb;
+            --danger-color: #b91c1c;
+            --danger-light: #fef2f2;
+            --success-color: #15803d;
+            --success-light: #f0fdf4;
+            --bg-color: #f1f5f9;
+            --text-color: #0f172a;
+            --text-muted: #475569;
+            --border-color: #cbd5e1;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body, button, input, select, textarea, table, h1, h2, h3, h4, h5, h6, p, a, span, div, li {
+            font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+        }
+
+        body {
+            background-color: var(--bg-color); color: var(--text-color); line-height: 2;
+            padding: 20px; font-size: 15.5px; overflow-x: hidden;
+        }
+
+        /* واترمارک مهرسا */
+        body::before {
+            content: ""; position: fixed; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70vw; height: 70vh;
+            background-image: url('https://frhdys.github.io/mehrsa/logo1.png');
+            background-repeat: no-repeat; background-position: center; background-size: contain;
+            opacity: 0.04; z-index: -1; pointer-events: none;
+        }
+
+        .container {
+            max-width: 1200px; margin: 0 auto; background: rgba(255, 255, 255, 0.96);
+            padding: 45px; border-radius: 16px; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255,255,255,0.5); backdrop-filter: blur(5px); position: relative;
+        }
+
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 0 0 rgba(180, 83, 9, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(180, 83, 9, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(180, 83, 9, 0); }
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); }
+        }
+        .animate-on-scroll {
+            opacity: 0; transform: translateY(30px);
+            transition: opacity 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .animate-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
+
+        /* Header */
+        header {
+            text-align: center; border-bottom: 4px double var(--primary-color);
+            padding-bottom: 30px; margin-bottom: 40px; animation: fadeUp 1s ease-out forwards;
+        }
+        .main-logo {
+            max-height: 110px; margin-bottom: 20px;
+            filter: drop-shadow(0 6px 10px rgba(0,0,0,0.15));
+            animation: float 5s ease-in-out infinite;
+        }
+        .board-badge {
+            background: linear-gradient(135deg, var(--primary-color), #312e81); color: #fef08a;
+            padding: 12px 30px; border-radius: 50px; display: inline-block;
+            font-size: 1.15rem; font-weight: 800; margin-bottom: 25px;
+            border: 2px solid var(--gold-color); animation: pulseGlow 3s infinite;
+        }
+        header .badge {
+            background-color: var(--danger-light); color: var(--danger-color);
+            font-size: 0.85rem; font-weight: bold; padding: 6px 18px; border-radius: 50px;
+            display: inline-block; margin-bottom: 15px; border: 1px solid #fca5a5;
+        }
+        header h1 { color: var(--primary-color); font-size: 2.1rem; margin-bottom: 12px; line-height: 1.5; font-weight: 900; }
+        header .subtitle { color: var(--text-muted); font-size: 1.05rem; }
+        header .meta-info { margin-top: 20px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; font-size: 0.85rem; color: var(--text-muted); }
+        header .meta-info span { background: #f8fafc; padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border-color); }
+
+        /* KPI */
+        .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin: 25px 0; }
+        .kpi-card {
+            background: #fff; border-radius: 12px; padding: 20px; border: 1px solid var(--border-color);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03); text-align: center; transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .kpi-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); }
+        .kpi-title { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px; font-weight: 600; }
+        .kpi-value { font-size: 1.5rem; font-weight: 900; color: var(--primary-color); }
+        .kpi-value.danger { color: var(--danger-color); }
+        .kpi-value.success { color: var(--success-color); }
+
+        /* Score Box */
+        .score-box {
+            background: linear-gradient(135deg, #fef2f2, #fff1f2);
+            border: 2px dashed var(--danger-color); border-radius: 16px;
+            padding: 25px; text-align: center; margin: 25px 0;
+        }
+        .score-circle {
+            width: 100px; height: 100px; border-radius: 50%; background: var(--danger-color);
+            color: white; font-size: 2.2rem; font-weight: 900;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 15px auto; box-shadow: 0 8px 20px rgba(185, 28, 28, 0.3);
+        }
+
+        /* TOC */
+        .toc {
+            background: var(--primary-light); border: 1px solid #bfdbfe; border-radius: 12px;
+            padding: 25px; margin-bottom: 40px; transition: transform 0.3s;
+        }
+        .toc h2 { color: var(--primary-color); font-size: 1.3rem; margin-bottom: 15px; border: none; padding: 0; }
+        .toc ol { margin-right: 20px; }
+        .toc a { color: var(--primary-color); text-decoration: none; font-weight: 600; }
+        .toc a:hover { color: var(--gold-color); }
+
+        section { margin-bottom: 45px; padding-top: 15px; }
+        h2 {
+            color: var(--primary-color); font-size: 1.6rem; border-right: 6px solid var(--gold-color);
+            padding-right: 15px; margin-bottom: 25px; padding-bottom: 8px; border-bottom: 1px dashed var(--border-color); font-weight: 800;
+        }
+        h3 {
+            color: var(--secondary-color); font-size: 1.2rem; margin: 25px 0 12px 0; padding-right: 10px;
+            border-right: 4px solid var(--secondary-color); font-weight: 700;
+        }
+        p { margin-bottom: 15px; text-align: justify; }
+
+        .callout { padding: 18px 22px; border-radius: 10px; margin: 20px 0; border-right: 5px solid; background: #fff; }
+        .callout.info { background-color: rgba(239, 246, 255, 0.8); border-color: var(--primary-color); }
+        .callout.warning { background-color: rgba(255, 251, 235, 0.8); border-color: var(--gold-color); }
+        .callout.danger { background-color: rgba(254, 242, 242, 0.8); border-color: var(--danger-color); }
+        .callout.success { background-color: rgba(240, 253, 244, 0.8); border-color: var(--success-color); }
+        .callout-title { font-weight: bold; display: block; margin-bottom: 10px; font-size: 1.1rem; }
+
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        thead { background: var(--primary-color); color: white; }
+        th, td { padding: 12px 15px; text-align: right; border-bottom: 1px solid var(--border-color); background: rgba(255,255,255,0.7); }
+        tbody tr:nth-child(even) td { background: rgba(248, 250, 252, 0.7); }
+        tbody tr:hover td { background: var(--primary-light); }
+
+        .doc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 15px; margin: 25px 0; }
+        .doc-card {
+            background: rgba(248, 250, 252, 0.9); border: 1px solid var(--border-color);
+            border-radius: 10px; padding: 16px; display: flex; align-items: flex-start; gap: 12px; transition: all 0.3s ease;
+        }
+        .doc-card:hover { background: var(--primary-light); border-color: var(--primary-color); transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+        .doc-card .icon {
+            background: var(--gold-color); color: white; width: 32px; height: 32px; min-width: 32px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;
+        }
+        .doc-card .content strong { display: block; margin-bottom: 4px; color: var(--text-color); }
+        .doc-card .content small { color: var(--text-muted); font-size: 0.85rem; }
+
+        /* Chart Images Grid */
+        .chart-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .chart-wrapper {
+            background: #fff;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        .chart-wrapper:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-color: var(--primary-color);
+        }
+        .chart-wrapper h4 {
+            text-align: center;
+            color: var(--primary-color);
+            margin: 0 0 5px 0;
+            font-size: 1.15rem;
+        }
+        .chart-wrapper .chart-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+        }
+        .chart-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            display: block;
+        }
+
+        /* Vs Grid (Comparison Text) */
+        .vs-container {
+            display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+            gap: 20px; margin: 30px 0;
+        }
+        .vs-side {
+            background: #fff; padding: 25px; border-radius: 15px;
+            border: 2px solid var(--border-color); text-align: center;
+        }
+        .vs-side.khapars { border-color: var(--danger-color); }
+        .vs-side.khodro { border-color: var(--gold-color); }
+        .vs-side h3 { border: none; padding: 0; color: var(--text-color); font-size: 1.5rem; margin-bottom: 5px;}
+        .vs-side .subtitle { color: var(--text-muted); margin-bottom: 15px; font-size: 0.85rem; }
+        .vs-side .figure { font-size: 2rem; font-weight: 900; color: var(--primary-color); margin: 10px 0;}
+        .vs-divider {
+            background: var(--gold-color); color: white; width: 50px; height: 50px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-weight: 900; font-size: 1.2rem; box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Timeline */
+        .timeline { border-right: 3px solid var(--gold-color); padding-right: 25px; margin: 30px 15px; }
+        .timeline-item { position: relative; padding: 15px 0; }
+        .timeline-item::before {
+            content: ""; position: absolute; right: -35px; top: 22px;
+            width: 15px; height: 15px; border-radius: 50%;
+            background: var(--gold-color); border: 3px solid white; box-shadow: 0 0 0 2px var(--gold-color);
+        }
+        .timeline-year {
+            background: var(--primary-color); color: white; padding: 3px 12px;
+            border-radius: 5px; font-weight: bold; display: inline-block; margin-bottom: 5px;
+        }
+
+        footer { text-align: center; border-top: 2px solid var(--border-color); padding-top: 30px; margin-top: 50px; color: var(--text-muted); font-size: 0.9rem; }
+        .footer-logo { max-height: 60px; margin-bottom: 15px; filter: grayscale(20%); transition: filter 0.3s, transform 0.3s;}
+        .footer-logo:hover { filter: grayscale(0%); transform: scale(1.1);}
+
+        @media (max-width: 768px) {
+            .container { padding: 20px; }
+            header h1 { font-size: 1.5rem; }
+            .kpi-grid { grid-template-columns: 1fr 1fr; }
+            .vs-container { grid-template-columns: 1fr; }
+            .chart-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Header -->
+    <header>
+        <img src="https://frhdys.github.io/mehrsa/logo1.png" alt="لوگوی هلدینگ مهرسا" class="main-logo">
+        <br>
+        <div class="board-badge">
+            گزارش جامع تحلیلی - هلدینگ مهرسا
+        </div>
+        <br>
+        <span class="badge">بازار پایه زرد فرابورس - لغو پذیرش شده</span>
+        <h1>گزارش جامع تحلیل بنیادین نماد «خپارس» به همراه<br>مقایسه ارزش دلاری بازار با نماد «خودرو»</h1>
+        <p class="subtitle">استخراج و تحلیل داده‌های TSETMC، کدال و ارزش‌گذاری دلاری تاریخی از سال ۲۰۱۰ تا ۲۰۲۶</p>
+        <div class="meta-info">
+            <span>🏭 صنعت: خودرو و ساخت قطعات</span>
+            <span>📊 نمادها: خپارس / خودرو</span>
+            <span>💵 مبنای مقایسه: ارزش دلاری بازار (Million USD)</span>
+        </div>
+    </header>
+
+    <!-- Score -->
+    <div class="score-box animate-on-scroll">
+        <div class="score-circle">-۳۵</div>
+        <h3 style="color: var(--danger-color); margin: 0 0 10px 0; border: none; padding: 0;">امتیاز ریسک سنجی بنیادین نماد خپارس: پرریسک (زون قرمز)</h3>
+        <p style="text-align: center; margin: 0; color: var(--text-muted); font-size: 0.95rem;">
+            نماد خپارس با حقوق مالکانه منفی ۴۳.۴ هزار میلیارد تومانی و زیان انباشته سنگین، مشمول <strong>ماده ۱۴۱ قانون تجارت</strong> بوده و در وضعیت پرریسک با نقدشوندگی پایین قرار دارد.
+        </p>
+    </div>
+
+    <!-- TOC -->
+    <nav class="toc animate-on-scroll">
+        <h2>📑 فهرست مطالب گزارش</h2>
+        <ol>
+            <li><a href="#s1">شناسنامه نماد و خلاصه‌ی وضعیت تابلو</a></li>
+            <li><a href="#s2">ترکیب سهامداران عمده و ساختار مالکیت</a></li>
+            <li><a href="#s3">بررسی صورت‌های مالی و ترازنامه (ریسک ماده ۱۴۱)</a></li>
+            <li><a href="#s4">تحلیل روند سودآوری و حاشیه‌های سود</a></li>
+            <li><a href="#s5">تحلیل رفتارشناسی حقیقی / حقوقی و دفتر سفارشات</a></li>
+            <li><a href="#s6">📊 تحلیل مقایسه‌ای ارزش دلاری بازار (خپارس vs خودرو)</a></li>
+            <li><a href="#s7">جمع‌بندی مدیریتی و توصیه‌های استراتژیک</a></li>
+        </ol>
+    </nav>
+
+    <!-- Section 1: Dashboard -->
+    <section id="s1">
+        <h2 class="animate-on-scroll">۱. شناسنامه نماد و خلاصه‌ی وضعیت تابلو</h2>
+        <p class="animate-on-scroll">آخرین آمار معاملاتی خپارس در بازار پایه زرد فرابورس نشان‌دهنده فشار فروش و زیان‌دهی عملکردی است:</p>
+        <div class="kpi-grid animate-on-scroll">
+            <div class="kpi-card"><div class="kpi-title">آخرین قیمت معامله</div><div class="kpi-value danger">۲,۰۴۹ ریال</div><small style="color: var(--danger-color);">(-۲.۹۸%)</small></div>
+            <div class="kpi-card"><div class="kpi-title">قیمت پایانی</div><div class="kpi-value danger">۲,۰۵۲ ریال</div><small style="color: var(--danger-color);">(-۲.۸۴%)</small></div>
+            <div class="kpi-card"><div class="kpi-title">سود هر سهم (EPS)</div><div class="kpi-value danger">-۱,۳۰۰ ریال</div><small>زیان‌ده</small></div>
+            <div class="kpi-card"><div class="kpi-title">نسبت P/E</div><div class="kpi-value danger">-۱.۵۸</div><small>منفی</small></div>
+            <div class="kpi-card"><div class="kpi-title">حجم معاملات روز</div><div class="kpi-value">۷۳.۹۵ M</div><small>سهم</small></div>
+            <div class="kpi-card"><div class="kpi-title">ارزش بازار (ریال)</div><div class="kpi-value">۲۳۳,۰۴۲ B</div><small>ریال</small></div>
+        </div>
+    </section>
+
+    <!-- Section 2: Shareholders -->
+    <section id="s2">
+        <h2 class="animate-on-scroll">۲. ترکیب سهامداران عمده و ساختار مالکیت</h2>
+        <p class="animate-on-scroll">بیش از ۷۱ درصد از سهام شرکت پارس خودرو در اختیار گروه سایپا و شرکت‌های زیرمجموعه آن قرار دارد:</p>
+        <table class="animate-on-scroll">
+            <thead>
+                <tr>
+                    <th>نام سهامدار / دارنده</th>
+                    <th>تعداد سهام</th>
+                    <th>درصد مالکیت</th>
+                    <th>تغییرات</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>شرکت ایرانی تولید اتومبیل سایپا (سهامی عام)</td><td>۴۷.۲۶۹ B</td><td><strong>۴۱.۶۲%</strong></td><td>بدون تغییر</td></tr>
+                <tr><td>شرکت سرمایه‌گذاری توسعه صنعتی نیوان مبتکر</td><td>۳۴.۰۲۸ B</td><td><strong>۲۹.۹۶%</strong></td><td>بدون تغییر</td></tr>
+                <tr><td>شرکت توسعه سرمایه رادین (سهامی خاص)</td><td>۲.۶۸۵ B</td><td>۲.۳۶%</td><td>بدون تغییر</td></tr>
+                <tr><td>شرکت سرمایه‌گذاری گروه صنعتی رنا</td><td>۲.۳۳۲ B</td><td>۲.۰۵%</td><td>بدون تغییر</td></tr>
+                <tr><td>شرکت رایان سرمایه پایدار</td><td>۲.۰۰۰ B</td><td>۱.۷۶%</td><td>بدون تغییر</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Section 3: Balance -->
+    <section id="s3">
+        <h2 class="animate-on-scroll">۳. بررسی صورت‌های مالی و ترازنامه (ریسک ماده ۱۴۱)</h2>
+        <div class="callout danger animate-on-scroll">
+            <span class="callout-title">⚠️ هشدار بحران بدهی و مشمولیت ماده ۱۴۱ قانون تجارت:</span>
+            <ul>
+                <li><strong>جمع بدهی‌های جاری:</strong> ۶۰,۵۰۹ میلیارد تومان (کل دارایی‌های جاری تنها ۱۱,۷۲۵ میلیارد تومان).</li>
+                <li><strong>حقوق مالکانه:</strong> <strong style="color:var(--danger-color);">منفی ۴۳,۴۰۱ میلیارد تومان</strong>.</li>
+                <li><strong>موجودی نقد:</strong> افت شدید معادل <strong>۹۶- درصد</strong>.</li>
+            </ul>
+        </div>
+        <table class="animate-on-scroll">
+            <thead>
+                <tr>
+                    <th>سرفصل حساب‌ها (میلیون ریال)</th>
+                    <th>پایان ۱۴۰۴</th>
+                    <th>۳ ماهه ۱۴۰۵</th>
+                    <th>درصد تغییر</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>موجودی نقد</td><td>۸,۳۹۵,۱۱۵</td><td style="color:var(--danger-color);">۳۴۲,۲۱۸</td><td style="color:var(--danger-color);">-۹۶%</td></tr>
+                <tr><td>موجودی مواد و کالا</td><td>۷۷,۰۲۷,۵۳۵</td><td>۶۵,۳۸۱,۶۶۹</td><td>-۱۵%</td></tr>
+                <tr><td>جمع دارایی‌های جاری</td><td>۱۳۳,۷۰۵,۸۱۱</td><td>۱۱۷,۲۵۹,۴۵۶</td><td>-۱۲%</td></tr>
+                <tr><td>جمع بدهی‌های جاری</td><td>۶۱۳,۱۳۰,۶۶۰</td><td>۶۰۵,۰۹۱,۹۹۱</td><td>-۱%</td></tr>
+                <tr><td><strong>زیان انباشته</strong></td><td style="color:var(--danger-color);">-۵۲۳,۹۳۷,۵۵۹</td><td style="color:var(--danger-color);">-۵۴۷,۵۶۸,۵۴۳</td><td style="color:var(--danger-color);">افزایش ۵٪</td></tr>
+                <tr><td><strong>جمع حقوق مالکانه</strong></td><td style="color:var(--danger-color);">-۴۱۰,۳۸۸,۳۸۸</td><td style="color:var(--danger-color);">-۴۳۴,۰۱۹,۳۷۲</td><td style="color:var(--danger-color);">افت ۶٪</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Section 4: Margins -->
+    <section id="s4">
+        <h2 class="animate-on-scroll">۴. تحلیل روند سودآوری و حاشیه‌های سود</h2>
+        <div class="doc-grid">
+            <div class="doc-card animate-on-scroll">
+                <div class="icon">📉</div>
+                <div class="content">
+                    <strong>حاشیه سود خالص دوازده ماهه</strong>
+                    <small>سقوط از ۷.۱۹- درصد (سال ۱۳۹۹) به <strong style="color:var(--danger-color);">-۹۵.۶۷%</strong> در دوره ۱۴۰۵/۱.</small>
+                </div>
+            </div>
+            <div class="doc-card animate-on-scroll">
+                <div class="icon">🏭</div>
+                <div class="content">
+                    <strong>حاشیه سود عملیاتی دوازده ماهه</strong>
+                    <small>نزول از ۷۸.۲۶- درصد (۱۳۹۹) به <strong style="color:var(--danger-color);">-۸۳.۰۰%</strong>.</small>
+                </div>
+            </div>
+            <div class="doc-card animate-on-scroll">
+                <div class="icon">📅</div>
+                <div class="content">
+                    <strong>روند زیان سالانه (کانسلیم)</strong>
+                    <small>عملکرد سالانه ۱۴۰۴ زیان ۱۵۰.۵- هزار میلیارد ریالی و عملکرد ۳ ماهه ۱۴۰۵ زیان ۲۳.۶ هزار میلیارد ریالی.</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Order Book -->
+    <section id="s5">
+        <h2 class="animate-on-scroll">۵. تحلیل رفتارشناسی حقیقی / حقوقی و دفتر سفارشات</h2>
+        <div class="callout warning animate-on-scroll">
+            <ul>
+                <li><strong>خروج ۱۰۰ درصدی حقیقی‌ها از فروش:</strong> کل ۷۳.۹۵ میلیون سهم فروخته‌شده توسط ۶۴ کد حقیقی انجام شده (فروش حقوقی صفر).</li>
+                <li><strong>ورود حقوقی در سمت خرید:</strong> کد حقوقی ۲۳.۷۵ میلیون سهم (۳۲.۱ درصد) خریداری کرده است.</li>
+                <li><strong>صف فروش سنگین:</strong> در تقاضا تنها ۱۰,۰۰۰ سهم سفارش وجود دارد در حالی که در عرضه بیش از ۳۸۰ میلیون سهم قفل شده است.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Section 6: Dollar Comparison with Charts -->
+    <section id="s6">
+        <h2 class="animate-on-scroll">۶. تحلیل مقایسه‌ای ارزش دلاری بازار (خپارس vs خودرو)</h2>
+        <p class="animate-on-scroll">
+            بررسی نمودارهای ارزش دلاری بازار (Market Cap in Million USD) از سال ۲۰۱۰ تا کنون، دیدگاه بسیار متفاوتی نسبت به تحلیل صرفاً ریالی به ما می‌دهد. این تحلیل نشان می‌دهد که با وجود رشد اسمی قیمت سهام در بازار ایران، ارزش واقعی دلاری این دو شرکت پس از پیک ۱۳۹۹ (۲۰۲۰) به شدت تضعیف شده است.
+        </p>
+
+        <!-- گالری چارت های تصویری -->
+        <div class="chart-grid animate-on-scroll">
+            <div class="chart-wrapper">
+                <h4>نمودار ارزش دلاری بازار - نماد خپارس</h4>
+                <p class="chart-subtitle">روند تاریخی Market Cap (میلیون دلار)</p>
+                <img src="https://frhdys.github.io/mehrsa/khapars-chart.jpg" alt="چارت ارزش دلاری خپارس" class="chart-image">
+            </div>
+            <div class="chart-wrapper">
+                <h4>نمودار ارزش دلاری بازار - نماد خودرو</h4>
+                <p class="chart-subtitle">روند تاریخی Market Cap (میلیون دلار)</p>
+                <img src="https://frhdys.github.io/mehrsa/khodro-chart.jpg" alt="چارت ارزش دلاری خودرو" class="chart-image">
+            </div>
+        </div>
+
+        <!-- خلاصه مقایسه ای متنی -->
+        <div class="vs-container animate-on-scroll">
+            <div class="vs-side khapars">
+                <h3>🚗 خپارس</h3>
+                <div class="subtitle">(پارس خودرو - فرابورس)</div>
+                <div class="figure" style="color: var(--danger-color);">~ ۹۹ M$</div>
+                <small>ارزش دلاری فعلی بازار (۲۰۲۶)</small>
+                <hr style="margin: 10px 0;">
+                <div>پیک تاریخی: <strong>۲,۸۰۰ M$</strong> (۲۰۲۰)</div>
+                <div>افت از پیک: <strong style="color:var(--danger-color);">-۹۶.۴۶%</strong></div>
+            </div>
+            <div class="vs-divider">VS</div>
+            <div class="vs-side khodro">
+                <h3>🚙 خودرو</h3>
+                <div class="subtitle">(ایران خودرو - بورس تهران)</div>
+                <div class="figure" style="color: var(--gold-color);">~ ۷۰۹ M$</div>
+                <small>ارزش دلاری فعلی بازار (۲۰۲۶)</small>
+                <hr style="margin: 10px 0;">
+                <div>پیک تاریخی: <strong>~۱۱,۲۰۰ M$</strong> (۲۰۲۰)</div>
+                <div>افت از پیک: <strong style="color:var(--danger-color);">-۹۳.۶۷%</strong></div>
+            </div>
+        </div>
+
+        <div class="callout info animate-on-scroll">
+            <span class="callout-title">🔍 مشاهده مهم اولیه:</span>
+            ارزش دلاری فعلی «خودرو» تقریباً <strong>۷.۱۶ برابر</strong> ارزش دلاری «خپارس» است. این نسبت در دهه گذشته تقریباً پایدار مانده که نشان از ثبات نسبی رتبه‌بندی این دو شرکت در گروه خودروسازان بزرگ کشور دارد.
+        </div>
+
+        <h3 class="animate-on-scroll">📈 تحلیل بازه‌های زمانی کلیدی:</h3>
+        <div class="timeline">
+            <div class="timeline-item animate-on-scroll">
+                <span class="timeline-year">۲۰۱۰ - ۲۰۱۳ (دوره تحریم اولیه)</span>
+                <p style="margin-top: 5px;">
+                    <strong>خپارس:</strong> در محدوده ۱۰۰ تا ۲۰۰ میلیون دلار در نوسان بود و کف تاریخی خود را در سال ۲۰۱۳ تجربه کرد.<br>
+                    <strong>خودرو:</strong> ارزشی بسیار قوی‌تر در محدوده ۱ تا ۳ میلیارد دلار داشت، هرچند در سال ۲۰۱۳ همراستا با خپارس افت شدیدی داشت.<br>
+                    <strong>نتیجه:</strong> در این دوره، شکاف دلاری بسیار عمیق بود و خودرو تقریباً <strong>۱۵ برابر</strong> خپارس ارزش داشت.
+                </p>
+            </div>
+
+            <div class="timeline-item animate-on-scroll">
+                <span class="timeline-year">۲۰۱۴ - ۲۰۱۷ (پسا برجام)</span>
+                <p style="margin-top: 5px;">
+                    <strong>خپارس:</strong> رشد قابل توجهی داشت و تا محدوده ۸۰۰ میلیون دلار (سال ۲۰۱۷) رسید.<br>
+                    <strong>خودرو:</strong> در این دوره در محدوده ۱ تا ۲ میلیارد دلار در نوسان بود.<br>
+                    <strong>نتیجه:</strong> شکاف بین دو نماد کاهش یافت و بازار به هر دو خودروساز اقبال نشان داد.
+                </p>
+            </div>
+
+            <div class="timeline-item animate-on-scroll">
+                <span class="timeline-year">۲۰۲۰ - ۲۰۲۱ (حباب کرونا و جهش تاریخی)</span>
+                <p style="margin-top: 5px;">
+                    <strong>خپارس:</strong> رکورد تاریخی ارزش دلاری خود را با <strong>۲,۸۰۰ میلیون دلار</strong> ثبت کرد.<br>
+                    <strong>خودرو:</strong> با ثبت رکورد نجومی <strong>۱۱,۲۰۰ میلیون دلار (~۱۱.۲ میلیارد دلار)</strong>، وارد لیگ خودروسازان متوسط جهانی شد.<br>
+                    <strong>نتیجه:</strong> این پیک، بیانگر ورود نقدینگی بی‌سابقه به بازار بورس ایران بود، ولی هر دو نماد بلافاصله وارد فاز نزولی شدند.
+                </p>
+            </div>
+
+            <div class="timeline-item animate-on-scroll">
+                <span class="timeline-year">۲۰۲۲ - ۲۰۲۴ (روند نزولی طولانی مدت)</span>
+                <p style="margin-top: 5px;">
+                    <strong>خپارس:</strong> از ۷۰۰ میلیون دلار به سمت ۳۰۰ میلیون دلار سقوط کرد.<br>
+                    <strong>خودرو:</strong> از حدود ۳,۵۰۰ میلیون دلار به محدوده ۱,۲۰۰ میلیون دلار افت داشت.<br>
+                    <strong>نتیجه:</strong> افت هر دو نماد در این دوره تقریباً موازی بوده که نشان از عدم ورود نقدینگی خارجی (دلاری) به این صنعت دارد.
+                </p>
+            </div>
+
+            <div class="timeline-item animate-on-scroll">
+                <span class="timeline-year">۲۰۲۵ - ۲۰۲۶ (وضعیت کنونی - کف تاریخی)</span>
+                <p style="margin-top: 5px;">
+                    <strong>خپارس:</strong> ارزش دلاری بازار به <strong>~۹۹ میلیون دلار</strong> رسیده که پس از سال ۲۰۱۳ کف تاریخی محسوب می‌شود.<br>
+                    <strong>خودرو:</strong> ارزش دلاری بازار به <strong>~۷۰۹ میلیون دلار</strong> رسیده که آن هم پایین‌ترین سطح دهه اخیر (به جز کف ۲۰۱۸) است.<br>
+                    <strong>نتیجه بحرانی:</strong> از منظر دلاری، هر دو شرکت با وجود گستردگی عملیات فیزیکی، ارزش بازار بسیار پایین‌تری نسبت به دارایی‌های واقعی خود دارند.
+                </p>
+            </div>
+        </div>
+
+        <h3 class="animate-on-scroll">📊 جدول مقایسه‌ای ارزش دلاری بازار در بازه‌های زمانی:</h3>
+        <table class="animate-on-scroll">
+            <thead>
+                <tr>
+                    <th>بازه زمانی</th>
+                    <th>ارزش دلاری خپارس (M USD)</th>
+                    <th>ارزش دلاری خودرو (M USD)</th>
+                    <th>نسبت خودرو به خپارس</th>
+                    <th>وضعیت بازار</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>۲۰۱۱ (اوج تحریم)</td><td>~ ۲۰۰</td><td>~ ۲,۸۰۰</td><td>۱۴X</td><td>رونق قبل از سقوط</td></tr>
+                <tr><td>۲۰۱۳ (کف تاریخی)</td><td>~ ۵۰</td><td>~ ۳۰۰</td><td>۶X</td><td>رکود عمیق</td></tr>
+                <tr><td>۲۰۱۷ (اوج برجام)</td><td>~ ۷۵۰</td><td>~ ۲,۱۰۰</td><td>۲.۸X</td><td>رشد متعادل</td></tr>
+                <tr style="background: var(--danger-light);"><td><strong>۲۰۲۰ (پیک حباب کرونا)</strong></td><td><strong>۲,۸۰۰</strong></td><td><strong>۱۱,۲۰۰</strong></td><td><strong>۴X</strong></td><td><strong>حباب تاریخی</strong></td></tr>
+                <tr><td>۲۰۲۳</td><td>~ ۵۰۰</td><td>~ ۱,۵۰۰</td><td>۳X</td><td>روند نزولی</td></tr>
+                <tr style="background: var(--gold-light);"><td><strong>۲۰۲۶ (وضعیت فعلی)</strong></td><td><strong>۹۹</strong></td><td><strong>۷۰۹</strong></td><td><strong>۷.۱۶X</strong></td><td><strong>کف چند ساله</strong></td></tr>
+            </tbody>
+        </table>
+
+        <div class="callout success animate-on-scroll">
+            <span class="callout-title">💡 نتایج تحلیل دلاری و فرصت‌های احتمالی:</span>
+            <ul>
+                <li><strong>افت واقعی ارزش:</strong> علیرغم رشد اسمی قیمت‌ها به ریال، هر دو نماد در حال حاضر از منظر دلاری در محدوده کف تاریخی خود پس از سال ۲۰۱۳ قرار دارند.</li>
+                <li><strong>خودرو گزینه امن‌تر:</strong> از منظر <strong>Market Cap</strong>، «خودرو» با ۷۰۹ میلیون دلار ارزش، به مراتب پایدارتر از خپارس بوده و افت آن از پیک ۲۰۲۰ (۹۳.۶۷-٪) نسبت به خپارس (۹۶.۴۶-٪) کمتر است.</li>
+                <li><strong>خپارس ریسکی‌تر ولی با پتانسیل بازگشت بالاتر:</strong> در صورت اصلاح ماده ۱۴۱ و تجدید ارزیابی دارایی‌ها، سهم خپارس با ارزش دلاری فعلی ۹۹ میلیون دلار، پتانسیل رشد چند برابری در بازه بلندمدت را دارد ولی ریسک آن نیز بالاست.</li>
+                <li><strong>هم‌جهت بودن دو نماد:</strong> نمودارها نشان می‌دهند که رفتار قیمت این دو نماد در بلندمدت کاملاً هم‌جهت است و متأثر از اخبار کلان صنعت خودرو (قیمت‌گذاری دستوری، تحریم، مذاکرات) هستند نه عوامل خُرد شرکتی.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Section 7: Board Summary -->
+    <section id="s7">
+        <h2 class="animate-on-scroll">۷. جمع‌بندی مدیریتی و توصیه‌های استراتژیک</h2>
+        <div class="callout danger animate-on-scroll">
+            <span class="callout-title">🎯 جمع‌بندی نهایی برای تصمیم‌گیری:</span>
+            <ol>
+                <li><strong>ریسک بنیادی بالا در خپارس:</strong> با حقوق مالکانه منفی ۴۳.۴ هزار میلیارد تومان و زیان انباشته متورم، خپارس فاقد ارزش بنیادی است.</li>
+                <li><strong>ارزش دلاری در کف تاریخی:</strong> ارزش بازار دلاری خپارس (۹۹ میلیون دلار) و خودرو (۷۰۹ میلیون دلار) هر دو نشان‌دهنده کف چند ساله هستند که ممکن است فرصت‌های سرمایه‌گذاری بلندمدت را فراهم کنند.</li>
+                <li><strong>ریسک بازار پایه:</strong> خپارس در بازار پایه زرد فرابورس معامله می‌شود که دامنه نوسان و نقدشوندگی محدود دارد. در مقابل، «خودرو» در بورس اصلی با نقدشوندگی بسیار بالاتر معامله می‌شود.</li>
+                <li><strong>محرک اصلی هر دو سهم:</strong> افزایش سرمایه از محل تجدید ارزیابی دارایی‌ها و آزادسازی قیمت‌گذاری خودرو، دو محرک اصلی هر دو نماد در بازه پیش رو محسوب می‌شوند.</li>
+                <li><strong>توصیه پرتفوی:</strong> در صورت لزوم به سرمایه‌گذاری در گروه خودرو، وزن‌دهی «خودرو» به دلیل ثبات بیشتر ارزش دلاری و نقدشوندگی، بر «خپارس» ارجحیت دارد.</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="animate-on-scroll">
+        <img src="https://frhdys.github.io/mehrsa/logo1.png" alt="هلدینگ مهرسا" class="footer-logo">
+        <br>
+        <div>
+            📘 <strong>گزارش تحلیلی و بنیادین نماد «خپارس» با مقایسه دلاری با نماد «خودرو»</strong>
+        </div>
+        <div class="credit">
+            تهیه و تدوین توسط تیم تحلیل هلدینگ مهرسا<br>
+            مبتنی بر مستندات کدال، سامانه TSETMC و داده‌های ارزش دلاری بازار
+        </div>
+    </footer>
+
+</div>
+
+<!-- اسکریپت انیمیشن اسکرول -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        const animatedElements = document.querySelectorAll('.animate-on-scroll');
+        animatedElements.forEach((el, index) => {
+            el.style.transitionDelay = `${(index % 3) * 0.12}s`;
+            observer.observe(el);
+        });
+    });
+</script>
+
+</body>
+</html>
